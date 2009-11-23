@@ -19,7 +19,6 @@ class Menulet
 	  bundle = NSBundle.bundleForClass(self.class)
 	  path = bundle.pathForImageResource("MenuIcon")
 	  menuIcon = NSImage.new.initWithContentsOfFile(path)
-	  @statusItem.setTitle("Title")
 	  @statusItem.setImage(menuIcon)
 	end
 	
