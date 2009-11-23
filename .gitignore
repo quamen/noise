@@ -1,0 +1,4 @@
+.DS_Store
+build
+noise.xcodeproj/*.mode1v3
+noise.xcodeproj/*.pbxuser
