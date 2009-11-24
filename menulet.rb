@@ -6,7 +6,6 @@
 
 
 class Menulet
-
 	attr_accessor :theMenu
 	
 	def awakeFromNib
@@ -14,12 +13,11 @@ class Menulet
 	  @statusItem.setHighlightMode(true)
 	  @statusItem.setEnabled(true)
 	  @statusItem.setToolTip("Menulet")
-	  @statusItem.setMenu(theMenu)
+	  @statusItem.setMenu(@theMenu)
 	  
 	  bundle = NSBundle.bundleForClass(self.class)
 	  path = bundle.pathForImageResource("MenuIcon")
 	  menuIcon = NSImage.new.initWithContentsOfFile(path)
 	  @statusItem.setImage(menuIcon)
 	end
-	
 end

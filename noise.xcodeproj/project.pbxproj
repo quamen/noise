@@ -50,7 +50,7 @@
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 		CE6A8E2410BB4AE400DD878F /* menulet.rb in Resources */ = {isa = PBXBuildFile; fileRef = CE6A8E2310BB4AE400DD878F /* menulet.rb */; };
-		CE6A8F2310BB5C8F00DD878F /* AppDelegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = CE6A8F2210BB5C8F00DD878F /* AppDelegate.rb */; };
+		CE6A8F2310BB5C8F00DD878F /* app_delegate.rb in Resources */ = {isa = PBXBuildFile; fileRef = CE6A8F2210BB5C8F00DD878F /* app_delegate.rb */; };
 		CE6A8F2A10BB5DDF00DD878F /* MenuIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6A8F2910BB5DDF00DD878F /* MenuIcon.png */; };
 /* End PBXBuildFile section */
 
@@ -81,7 +81,7 @@
 		8D1107310486CEB800E47090 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* noise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = noise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE6A8E2310BB4AE400DD878F /* menulet.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = menulet.rb; sourceTree = "<group>"; };
-		CE6A8F2210BB5C8F00DD878F /* AppDelegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = AppDelegate.rb; sourceTree = "<group>"; };
+		CE6A8F2210BB5C8F00DD878F /* app_delegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = app_delegate.rb; sourceTree = "<group>"; };
 		CE6A8F2910BB5DDF00DD878F /* MenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuIcon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -102,7 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6A8E2310BB4AE400DD878F /* menulet.rb */,
-				CE6A8F2210BB5C8F00DD878F /* AppDelegate.rb */,
+				CE6A8F2210BB5C8F00DD878F /* app_delegate.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -236,7 +236,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */,
 				CE6A8E2410BB4AE400DD878F /* menulet.rb in Resources */,
-				CE6A8F2310BB5C8F00DD878F /* AppDelegate.rb in Resources */,
+				CE6A8F2310BB5C8F00DD878F /* app_delegate.rb in Resources */,
 				CE6A8F2A10BB5DDF00DD878F /* MenuIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
