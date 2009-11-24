@@ -93,7 +93,7 @@
 		CE6A8E2310BB4AE400DD878F /* menulet.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = menulet.rb; sourceTree = "<group>"; };
 		CE6A8F2210BB5C8F00DD878F /* app_delegate.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = app_delegate.rb; sourceTree = "<group>"; };
 		CE6A8F2910BB5DDF00DD878F /* MenuIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MenuIcon.png; sourceTree = "<group>"; };
-		CE6A8F4C10BB61C500DD878F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
+		CE6A8F4C10BB61C500DD878F /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = vendor/Sparkle.framework; sourceTree = "<group>"; };
 		CE6A8F6F10BB671100DD878F /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -124,10 +124,10 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE6A8F4C10BB61C500DD878F /* Sparkle.framework */,
-				4DE3BE130D8651D900ECA448 /* MacRuby.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
 				0388450110BB65FA009AD101 /* Growl-WithInstaller.framework */,
+				4DE3BE130D8651D900ECA448 /* MacRuby.framework */,
+				CE6A8F4C10BB61C500DD878F /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
