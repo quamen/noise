@@ -43,6 +43,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		0328D92810BB6938000880AA /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 0328D92710BB6938000880AA /* Growl Registration Ticket.growlRegDict */; };
 		0388450210BB65FA009AD101 /* Growl-WithInstaller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0388450110BB65FA009AD101 /* Growl-WithInstaller.framework */; };
 		0388450510BB6602009AD101 /* Growl-WithInstaller.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0388450110BB65FA009AD101 /* Growl-WithInstaller.framework */; };
 		4DE339F70D74FCDD00ADB6EE /* rb_main.rb in Resources */ = {isa = PBXBuildFile; fileRef = 4DE339F60D74FCDD00ADB6EE /* rb_main.rb */; };
@@ -70,6 +71,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0328D92710BB6938000880AA /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		0388450110BB65FA009AD101 /* Growl-WithInstaller.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "Growl-WithInstaller.framework"; path = "vendor/Growl-WithInstaller.framework"; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
@@ -174,6 +176,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0328D92710BB6938000880AA /* Growl Registration Ticket.growlRegDict */,
 				CE6A8F2910BB5DDF00DD878F /* MenuIcon.png */,
 				8D1107310486CEB800E47090 /* Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -244,6 +247,7 @@
 				CE6A8E2410BB4AE400DD878F /* menulet.rb in Resources */,
 				CE6A8F2310BB5C8F00DD878F /* app_delegate.rb in Resources */,
 				CE6A8F2A10BB5DDF00DD878F /* MenuIcon.png in Resources */,
+				0328D92810BB6938000880AA /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
