@@ -1,4 +1,4 @@
-# AppDelegate.rb
+# app_delegate.rb
 # noise
 #
 # Created by Gareth Townsend on 24/11/09.
