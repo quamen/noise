@@ -37,7 +37,7 @@ class FeedParser
 	def parser(parser, foundCharacters:string)
     if @element && @entry
       
-			@entry.send("#{@element}=".to_sym, %! #{@entry.send("#{@element}".to_sym)} #{string} !)
+			@entry.send("#{@element}=".to_sym, %! #{@entry.send("#{@element}".to_sym)}#{string.strip} !.strip)
 		end
 	end
 	
