@@ -33,17 +33,14 @@ class AtomFeedParserTest < Test::Unit::TestCase
 		assert_equal(22, feed.entries.count)
 	end
 	
-	def test_feed_entry_title_set
-		feed = @atom_feed_parser.parse
-		feed.entries.each do |entry|
-			assert_not_nil(entry.title)
-		end
-	end
-	
-	def test_feed_entry_updated_set
-		feed = @atom_feed_parser.parse
-		feed.entries.each do |entry|
-			assert_not_nil(entry.updated)
-		end
-	end
+	FeedParser::ELEMENTS.each do |element|
+	  class_eval do
+	    define_method "test_feed_entry_#{element}_set" do
+    		feed = @atom_feed_parser.parse
+    		feed.entries.each do |entry|
+    			assert_not_nil(entry.send("#{element}".to_sym))
+    		end
+    	end
+    end
+  end
 end

@@ -22,12 +22,14 @@ class FeedParser
 		@feed
 	end
 	
+	ELEMENTS = ['updated', 'title', 'id', 'published', 'content', 'author']
+	
 	def parser(parser, didStartElement:elementName, namespaceURI:namespaceURI, qualifiedName:qName, attributes:attributeDict)
 	  if elementName == 'feed'
 	    @feed.xmlns = attributeDict.objectForKey('xmlns')
 		elsif elementName == 'entry'
 			@entry = Entry.new
-		elsif elementName == 'updated' || elementName == 'title'
+		elsif ELEMENTS.include?(elementName)
 			@element = elementName
 	  end
 	end

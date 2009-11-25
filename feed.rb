@@ -16,5 +16,5 @@ class Feed
 end
 
 class Entry
-	attr_accessor :updated, :title
+	attr_accessor :updated, :title, :updated, :title, :id, :published, :content, :author
 end
