@@ -33,7 +33,17 @@ class AppDelegate
   
   def applicationDidFinishLaunching(notification)
     init_growl
-    notify_growl "You suck!"
+		
+		atom_file_path = "http://app.cleargrain.com.au/trades.atom"
+		feed_url = NSURL.URLWithString(atom_file_path)
+		feed_parser = FeedParser.new(feed_url)
+		feed = feed_parser.parse
+		
+		feed.entries.each do |entry|
+			notify_growl entry.title
+		end
+		
+		#NSSpeechSynthesizer.new.startSpeakingString("#{feed.entries.count} new trades")
   end
   
   # GrowlApplicationBridgeDelegate methods.
