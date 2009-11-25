@@ -15,11 +15,11 @@ class AppDelegate
     super
   end
 
-  def notify_growl(message)
+  def notify_growl(title, message)
     #return unless @growl_is_ready
     
     GrowlApplicationBridge.notifyWithTitle(
-      APP_NAME,
+      title,
       :description      => message,
       :notificationName => NOTIFICATION_NAME,
       :iconData         => nil,
@@ -40,8 +40,7 @@ class AppDelegate
 		feed = feed_parser.parse
 		
 		feed.entries.each do |entry|
-			NSLog(entry.content)
-			notify_growl entry.title
+			notify_growl 'Trade', entry.content.gsub(/<\/?[^>]*>/, "")
 		end
 		
 		#NSSpeechSynthesizer.new.startSpeakingString("#{feed.entries.count} new trades")
