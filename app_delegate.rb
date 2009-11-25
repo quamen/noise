@@ -40,6 +40,7 @@ class AppDelegate
 		feed = feed_parser.parse
 		
 		feed.entries.each do |entry|
+			NSLog(entry.content)
 			notify_growl entry.title
 		end
 		
