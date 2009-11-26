@@ -7,8 +7,8 @@
 #
 
 # Embed MacRuby.
-$:.map! { |x| x.sub(/^\/Library\/Frameworks/, NSBundle.mainBundle.privateFrameworksPath) }
-$:.unshift NSBundle.mainBundle.resourcePath.fileSystemRepresentation
+#$:.map! { |x| x.sub(/^\/Library\/Frameworks/, NSBundle.mainBundle.privateFrameworksPath) }
+#$:.unshift NSBundle.mainBundle.resourcePath.fileSystemRepresentation
 
 # Loading the Cocoa framework. If you need to load more frameworks, you can do that here too.
 framework 'Cocoa'
