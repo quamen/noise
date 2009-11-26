@@ -1,10 +1,6 @@
-# noise_growler.rb
-# noise
-#
-# Created by Gareth Townsend on 26/11/09.
 # Copyright 2009 Clear Interactive. All rights reserved.
 
-class NoiseGrowler
+class GrowlNotifier < Notifier
   APP_NAME = "Noise"
   NOTIFICATION_NAME = "Noise Notification"
 
@@ -12,6 +8,7 @@ class NoiseGrowler
 
   def initialize
     initalize_growl
+    super
   end
 
   def notify(title, message)
@@ -37,9 +34,8 @@ class NoiseGrowler
   end
 
   private
-
-  def initalize_growl
-    @growl_is_ready = false
-    GrowlApplicationBridge.setGrowlDelegate(self);
-  end
+    def initalize_growl
+      @growl_is_ready = false
+      GrowlApplicationBridge.setGrowlDelegate(self);
+    end
 end
