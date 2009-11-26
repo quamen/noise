@@ -37,10 +37,8 @@ class Noise < Thor
   desc "release VERSION", "cut a new release and upload it"
   def release(version)
     path, length, signature = create_release(version)
-
     upload_file(path, File.basename(path), "#{APP_NAME} release #{version}.")
-
-    create_post(version, length, signature)
+    update_gh_pages(version, length, signature)
   end
 
   private
@@ -54,6 +52,16 @@ class Noise < Thor
 
     def sign(path)
       `openssl dgst -sha1 -binary < "#{path}" | openssl dgst -dss1 -sign "#{PRIVATE_KEY}" | openssl enc -base64`
+    end
+
+    def update_gh_pages(version, length, signature)
+      git "checkout gh-pages"
+      git "pull origin gh-pages"
+      create_post(version, length, signature)
+      update_mini_template(version)
+      git "commit -m 'Added new post for version #{version}.'"
+      git "push origin gh-pages"
+      git "checkout master"
     end
 
     def create_release(version)
@@ -75,12 +83,10 @@ class Noise < Thor
     def create_post(version, length, signature)
       puts "Creating #{APP_NAME} jekyll post for #{version}..."
 
-      git "checkout gh-pages"
+      file_name = Time.new.strftime("%Y-%m-%d") + "-release-#{version}.markdown"
+      path = File.join(File.dirname(__FILE__), '_posts', file_name)
 
-      post_file_name = Time.new.strftime("%Y-%m-%d") + "-release-#{version}.markdown"
-      post_path = File.join(File.dirname(__FILE__), '_posts', post_file_name)
-
-      open(post_path, 'w') { |file| file.puts <<EOF }
+      open(path, 'w') { |file| file.puts <<EOF }
 ---
 layout: post
 title: Release #{version}
@@ -92,10 +98,7 @@ release-signature: #{signature}
 <p>Sample Appcast</p>
 EOF
 
-      git "add _posts #{post_path}"
-      git "commit -m 'Added new post for version #{version}.'"
-      git "push origin gh-pages"
-      git "checkout master"
+      git "add #{path}"
     end
 
     def git_config_value(name)
@@ -150,5 +153,17 @@ EOF
       end
 
       fail "failed to upload to Amazon S3" unless curl.response_code == 201
+    end
+
+    def update_mini_template(version)
+      path = File.join('assets', 'helpers.rb')
+      fin = File.readlines(path)
+
+      open(path, 'w') do |fout|
+        fout.puts "RELEASE_VERSION = '#{version}'"
+        fout.puts fin[1..-1]
+      end
+
+      git "add #{path}"
     end
 end
