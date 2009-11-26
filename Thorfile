@@ -57,6 +57,8 @@ class Noise < Thor
     end
 
     def create_release(version)
+      puts "Creating #{APP_NAME} release #{version}..."
+
       file_name = "#{APP_NAME}-#{version}.tar.gz"
       path = File.join('/', 'tmp', file_name)
 
@@ -71,6 +73,8 @@ class Noise < Thor
     end
 
     def create_post(version, length, signature)
+      puts "Creating #{APP_NAME} jekyll post for #{version}..."
+
       git "checkout gh-pages"
 
       post_file_name = Time.new.strftime("%Y-%m-%d") + "-release-#{version}.markdown"
@@ -107,6 +111,8 @@ EOF
     end
 
     def upload_file(path, file_name, description)
+      puts "Uploading #{path} to GitHub..."
+
       login = git_config_value("github.user")
       fail "login not set in git config" unless login
       token = git_config_value("github.token")
