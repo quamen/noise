@@ -22,4 +22,6 @@ class AppDelegate
 		@notifiers << SpeechNotifier.new
     @clear = CLEARSource.new(self)
   end
+	
+	private
 end

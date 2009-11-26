@@ -4,14 +4,14 @@ require 'feed_parser'
 require 'time'
 
 class CLEARSource
-  FEED_URL = "https://app.cleargrain.com.au/trades.atom"
+  FEED_URL = "http://localhost:3000/trades.atom"
   POLL_INTERVAL = 10
 
   attr_accessor :feed
 
   def initialize(delegate)
+		register_defaults
     @delegate = delegate
-    @updated = Time.now
 		@timer = NSTimer.scheduledTimerWithTimeInterval(POLL_INTERVAL, target:self, selector:'do_update', userInfo:nil, repeats:true)
 		@timer.fire
   end
@@ -19,13 +19,14 @@ class CLEARSource
 	def	do_update
 	  parse_feed
     
-		feed.entries.delete_if {|entry| Time.parse(entry.published) <= @updated }
+		feed.entries.delete_if {|entry| Time.parse(entry.published) <= Time.parse(NSUserDefaults.standardUserDefaults.stringForKey('clear_updated')) }
 		total = feed.entries.inject(0) {|total, value| total += value.title.match(/\d*[.]\d*/)[0].to_f; total }.round(2)
 
 		if total > 0
 			message = "#{total} tonnes traded"
 			@delegate.notify("Trade", message)
-			@updated = Time.parse(feed.entries.first.published)
+			
+			NSUserDefaults.standardUserDefaults.setObject(feed.entries.first.published, forKey:'clear_updated')
 		end
 	end
 
@@ -35,4 +36,10 @@ class CLEARSource
       feed_parser = FeedParser.new(url)
       @feed = feed_parser.parse
     end
+		
+		def register_defaults
+			defaults = NSUserDefaults.standardUserDefaults
+			appDefaults = NSDictionary.dictionaryWithObject(Time.now.to_s, forKey:'clear_updated')
+			defaults.registerDefaults(appDefaults)
+		end
 end
