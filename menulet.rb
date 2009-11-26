@@ -11,7 +11,7 @@ class Menulet
 	  @statusItem = NSStatusBar.systemStatusBar.statusItemWithLength(NSVariableStatusItemLength)
 	  @statusItem.setHighlightMode(true)
 	  @statusItem.setEnabled(true)
-	  @statusItem.setToolTip("Menulet")
+	  @statusItem.setToolTip("Noise")
 	  @statusItem.setMenu(@theMenu)
 	  
 	  bundle = NSBundle.bundleForClass(self.class)
