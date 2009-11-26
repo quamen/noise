@@ -2,6 +2,7 @@ require 'thor'
 require 'plist'
 require 'curb'
 require 'rexml/document'
+require 'yaml'
 
 APP_NAME = "noise"
 INFO_PLIST_PATH = "Info.plist"
@@ -58,7 +59,7 @@ class Noise < Thor
       git "checkout gh-pages"
       git "pull origin gh-pages"
       create_post(version, length, signature)
-      update_mini_template(version)
+      update_index_page(version)
       git "commit -m 'Added new post for version #{version}.'"
       git "push origin gh-pages"
       git "checkout master"
@@ -155,13 +156,25 @@ EOF
       fail "failed to upload to Amazon S3" unless curl.response_code == 201
     end
 
-    def update_mini_template(version)
-      path = File.join('assets', 'helpers.rb')
-      fin = File.readlines(path)
+    def update_index_page(version)
+      path = 'index.html'
+      data = nil
+      content = File.read(path)
+
+      if content =~ /^(---\s*\n.*?\n?)(---.*?\n)/m
+        content = content[($1.size + $2.size)..-1]
+        data = YAML.load($1)
+      end
+
+      fail "failed to update version on #{path} page"
+
+      # Update the version.
+      data['release-version'] = version
 
       open(path, 'w') do |fout|
-        fout.puts "RELEASE_VERSION = '#{version}'"
-        fout.puts fin[1..-1]
+        fout.puts data.to_yaml
+        fout.puts '---'
+        fout.puts content
       end
 
       git "add #{path}"
