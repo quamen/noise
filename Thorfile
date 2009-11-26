@@ -37,8 +37,11 @@ class Noise < Thor
 
   desc "release VERSION", "cut a new release and upload it"
   def release(version)
-    path, length, signature = create_release(version)
+    path = create_release(version)
     upload_file(path, File.basename(path), "#{APP_NAME} release #{version}.")
+
+    length = File.size(path)
+    signature = sign(path)
     update_gh_pages(version, length, signature)
   end
 
@@ -75,10 +78,7 @@ class Noise < Thor
       build
       system "tar -czf #{path} -C build/Release #{APP_NAME}.app"
 
-      length = File.size(path)
-      signature = sign(path)
-
-      return path, length, signature
+      path
     end
 
     def create_post(version, length, signature)
@@ -164,9 +164,9 @@ EOF
       if content =~ /^(---\s*\n.*?\n?)(---.*?\n)/m
         content = content[($1.size + $2.size)..-1]
         data = YAML.load($1)
+      else
+        fail "failed to update version on #{path} page"
       end
-
-      fail "failed to update version on #{path} page"
 
       # Update the version.
       data['release-version'] = version
