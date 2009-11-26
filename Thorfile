@@ -1,5 +1,7 @@
 require 'thor'
 require 'plist'
+require 'curb'
+require 'rexml/document'
 
 APP_NAME = "noise"
 INFO_PLIST_PATH = "Info.plist"
@@ -34,18 +36,16 @@ class Noise < Thor
 
   desc "release VERSION", "cut a new release and upload it"
   def release(version)
-    path = create_release(version)
-    length = File.size(path)
-    signature = sign(path)
+    path, length, signature = create_release(version)
 
-    puts path, length, signature
+    upload_file(path, version, "#{APP_NAME} release #{version}.")
 
     create_post(version, length, signature)
   end
 
   private
     def git(action)
-      system "git #{action}"
+      `git #{action}`.chomp
     end
 
     def xcode(action)
@@ -57,14 +57,17 @@ class Noise < Thor
     end
 
     def create_release(version)
-      release_file_name = "#{APP_NAME}-#{version}.tar.bz2"
-      release_path = File.join('/', 'tmp', release_file_name)
+      file_name = "#{APP_NAME}-#{version}.tar.bz2"
+      path = File.join('/', 'tmp', file_name)
 
       tag(version)
       build
-      system "tar -cjf #{release_path} -C build/Release #{APP_NAME}.app"
+      system "tar -cjf #{path} -C build/Release #{APP_NAME}.app"
 
-      release_path
+      length = File.size(path)
+      signature = sign(path)
+
+      return path, length, signature
     end
 
     def create_post(version, length, signature)
@@ -89,5 +92,57 @@ EOF
       git "commit -m 'Added new post for version #{version}.'"
       #git "push origin gh-pages"
       git "checkout master"
+    end
+
+    def git_config_value(name)
+      # Try global scope.
+      value = git "config --global --get #{name}"
+
+      # Try project scope.
+      if value.empty?
+        value = git "config --get #{name}"
+      end
+
+      value
+    end
+
+    def upload_file(path, file_name, description)
+      login = git_config_value("github.user")
+      fail "login not set in git config" unless login
+      token = git_config_value("github.token")
+      fail "token not set in git config" unless token
+
+      payload = [
+        Curl::PostField.content('file_size',    File.size(path)),
+        Curl::PostField.content('content_type', "application/octet-stream"),
+        Curl::PostField.content('file_name',    file_name),
+        Curl::PostField.content('description',  description || ''),
+        Curl::PostField.content('login',        login),
+        Curl::PostField.content('token',        token),
+      ]
+
+      curl = Curl::Easy.http_post("http://github.com/quamen/noise/downloads", *payload)
+
+      fail "failed to upload to GitHub" unless curl.response_code == 200
+
+      doc = REXML::Document.new(curl.body_str)
+      upload = doc.elements.first.elements.to_a.inject({}) {|hash, element| hash[element.name] = element.text; hash}
+      payload = [
+        Curl::PostField.content('Filename',               path),
+        Curl::PostField.content('policy',                 upload['policy']),
+        Curl::PostField.content('success_action_status',  '201'),
+        Curl::PostField.content('key',                    upload['prefix'] + file_name),
+        Curl::PostField.content('AWSAccessKeyId',         upload['accesskeyid']),
+        Curl::PostField.content('Content-Type',           "application/octet-stream"),
+        Curl::PostField.content('signature',              upload['signature']),
+        Curl::PostField.content('acl',                    upload['acl']),
+        Curl::PostField.file('file',                      path),
+      ]
+
+      curl = Curl::Easy.http_post("http://github.s3.amazonaws.com/", *payload) do |curl|
+        curl.multipart_form_post = true
+      end
+
+      fail "failed to upload to Amazon S3" unless curl.response_code == 201
     end
 end
