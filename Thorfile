@@ -31,7 +31,7 @@ class Noise < Thor
     git "add #{INFO_PLIST_PATH}"
     git "commit -m 'Prepare release #{version}.'"
     git "tag #{version}"
-    #git "push --tags origin master"
+    git "push --tags origin master"
   end
 
   desc "release VERSION", "cut a new release and upload it"
@@ -94,7 +94,7 @@ EOF
 
       git "add _posts #{post_path}"
       git "commit -m 'Added new post for version #{version}.'"
-      #git "push origin gh-pages"
+      git "push origin gh-pages"
       git "checkout master"
     end
 
