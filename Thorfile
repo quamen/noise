@@ -57,12 +57,12 @@ class Noise < Thor
     end
 
     def create_release(version)
-      file_name = "#{APP_NAME}-#{version}.tar.bz2"
+      file_name = "#{APP_NAME}-#{version}.tar.gz"
       path = File.join('/', 'tmp', file_name)
 
       tag(version)
       build
-      system "tar -cjf #{path} -C build/Release #{APP_NAME}.app"
+      system "tar -czf #{path} -C build/Release #{APP_NAME}.app"
 
       length = File.size(path)
       signature = sign(path)
