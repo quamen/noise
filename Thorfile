@@ -25,6 +25,9 @@ class Noise < Thor
 
   desc "tag VERSION", "tag the project with the specified version"
   def tag(version)
+    git "checkout master"
+    git "pull origin master"
+
     info = Plist::parse_xml(INFO_PLIST_PATH)
     info['CFBundleVersion'] = version
     info.save_plist(INFO_PLIST_PATH)
@@ -74,9 +77,9 @@ class Noise < Thor
       file_name = "#{APP_NAME}-#{version}.tar.gz"
       path = File.join('/', 'tmp', file_name)
 
-      tag(version)
       build
       system "tar -czf #{path} -C build/Release #{APP_NAME}.app"
+      tag(version)
 
       path
     end
