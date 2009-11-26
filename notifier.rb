@@ -3,5 +3,6 @@
 class Notifier
   def notify(title, message)
     # Abstract method.
+    raise NotImplementedError
   end
 end

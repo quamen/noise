@@ -148,10 +148,10 @@
 				03DEA6BE10BE506300E28793 /* sources */,
 				03DEA6BD10BE505500E28793 /* notifiers */,
 				CE6A8F2210BB5C8F00DD878F /* app_delegate.rb */,
-				03DEA64610BE4CF200E28793 /* notifier.rb */,
-				CE6A8E2310BB4AE400DD878F /* menulet.rb */,
-				CE70C00F10BBD669005EABED /* feed_parser.rb */,
 				CE39F4FC10BCC99B00C38032 /* feed.rb */,
+				CE70C00F10BBD669005EABED /* feed_parser.rb */,
+				CE6A8E2310BB4AE400DD878F /* menulet.rb */,
+				03DEA64610BE4CF200E28793 /* notifier.rb */,
 			);
 			name = Classes;
 			sourceTree = "<group>";

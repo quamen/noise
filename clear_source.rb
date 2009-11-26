@@ -1,6 +1,10 @@
 # Copyright 2009 Active Pathway. All rights reserved.
 
+require 'feed_parser'
+require 'time'
+
 class CLEARSource
+  FEED_URL = "https://app.cleargrain.com.au/trades.atom"
   POLL_INTERVAL = 10
 
   attr_accessor :feed
@@ -27,9 +31,8 @@ class CLEARSource
 
 	private
     def parse_feed
-      atom_file_path = "https://app.cleargrain.com.au/trades.atom"
-      feed_url = NSURL.URLWithString(atom_file_path)
-      feed_parser = FeedParser.new(feed_url)
+      url = NSURL.URLWithString(FEED_URL)
+      feed_parser = FeedParser.new(url)
       @feed = feed_parser.parse
     end
 end

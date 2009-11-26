@@ -1,5 +1,7 @@
 # Copyright 2009 Clear Interactive. All rights reserved.
 
+require 'notifier'
+
 class GrowlNotifier < Notifier
   APP_NAME = "Noise"
   NOTIFICATION_NAME = "Noise Notification"

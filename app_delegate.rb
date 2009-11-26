@@ -1,5 +1,9 @@
 # Copyright 2009 Clear Interactive. All rights reserved.
 
+require 'growl_notifier'
+require 'speech_notifier'
+require 'clear_source'
+
 class AppDelegate
 	attr_accessor :menulet
 
