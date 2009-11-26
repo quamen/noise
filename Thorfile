@@ -74,11 +74,12 @@ class Noise < Thor
     def create_release(version)
       puts "Creating #{APP_NAME} release #{version}..."
 
-      file_name = "#{APP_NAME}-#{version}.tar.gz"
+      file_name = "#{APP_NAME}-#{version}.zip"
       path = File.join('/', 'tmp', file_name)
 
       build
-      system "tar -czf #{path} -C build/Release #{APP_NAME}.app"
+      #system "tar -czf #{path} -C build/Release #{APP_NAME}.app"
+      system "ditto -ck --keepParent build/Release/#{APP_NAME}.app #{path}"
       tag(version)
 
       path
