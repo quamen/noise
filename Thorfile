@@ -38,7 +38,7 @@ class Noise < Thor
   def release(version)
     path, length, signature = create_release(version)
 
-    upload_file(path, version, "#{APP_NAME} release #{version}.")
+    upload_file(path, File.basename(path), "#{APP_NAME} release #{version}.")
 
     create_post(version, length, signature)
   end
