@@ -10,6 +10,12 @@ class AppDelegate
   def initialize
     @notifiers = []
   end
+	
+	def open_preferences(sender)
+		NSLog('open preferences')
+		preference_controller ||= PreferencesController.new
+		preference_controller.showWindow(self)
+	end
 
   def notify(title, message)
     @notifiers.each {|notifier| notifier.notify(title, message) }
