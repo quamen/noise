@@ -9,7 +9,7 @@
 #import "FeedSource.h"
 #import "FeedParser.h"
 
-#define FEED_URL @"http://app.cleargrain.com.au/trades.atom"
+#define FEED_URL @"https://app.cleargrain.com.au/trades.atom"
 
 @interface CLEAR : FeedSource {
 @private

@@ -6,15 +6,25 @@
 //  Copyright 2009 Active Pathway. All rights reserved.
 //
 
+#import <objc/runtime.h>
+#import "ISO8601DateFormatter.h"
 #import "FeedParser.h"
 #import "NSString+InflectionSupport.h"
+
+@interface FeedParser (Private)
+
++ (Class)getPropertyClass:(Class)source property:(NSString *)propertyName;
++ (NSDate *)parseDate:(NSString *)dateString;
+
+@end
+
 
 @implementation FeedParser
 
 - (id)initWithUrl:(NSURL *)aUrl {
   if (self = [self init]) {
     url = aUrl;
-    properties = [NSSet setWithObjects:@"id", @"title", @"content", nil];
+    properties = [NSSet setWithObjects:@"id", @"title", @"content", @"published", nil];
   }
   return self;
 }
@@ -52,6 +62,20 @@ didStartElement:(NSString *)elementName
   currentText = [currentText stringByAppendingString:string];
 }
 
++ (NSDate *)parseDate:(NSString *)dateString {  
+  ISO8601DateFormatter *formatter = [[ISO8601DateFormatter alloc] init];
+  return [formatter dateFromString:dateString];
+}
+
++ (Class)getPropertyClass:(Class)source property:(NSString *)propertyName {
+  objc_property_t property = class_getProperty([source class], [propertyName UTF8String]);
+  NSString *propertyAttributesString = [NSString stringWithCString:property_getAttributes(property) encoding:NSUTF8StringEncoding];
+  NSArray *propertyAttributes = [propertyAttributesString componentsSeparatedByString:@","];
+  NSString *propertyClassName = [propertyAttributes objectAtIndex:0];
+  propertyClassName = [propertyClassName substringWithRange:NSMakeRange(3, [propertyClassName length] - 4)];
+  return NSClassFromString(propertyClassName);
+}
+
 - (void)parser:(NSXMLParser *)parser
  didEndElement:(NSString *)elementName
   namespaceURI:(NSString *)namespaceURI
@@ -60,10 +84,15 @@ didStartElement:(NSString *)elementName
     [entries addObject:currentEntry];
     currentEntry = nil;
   } else if (currentEntry != nil && [properties containsObject:elementName]) {
-    SEL sel = NSSelectorFromString([NSString stringWithFormat:@"set%@:", [elementName titleize]]);
+    SEL setter = NSSelectorFromString([NSString stringWithFormat:@"set%@:", [elementName titleize]]);
+    Class klass = [FeedParser getPropertyClass:[currentEntry class] property:elementName];
 
-    if ([currentEntry respondsToSelector:sel]) {
-      [currentEntry performSelector:sel withObject:currentText];
+    if ([currentEntry respondsToSelector:setter]) {
+      if (klass == [NSDate class]) {
+        [currentEntry performSelector:setter withObject:[FeedParser parseDate:currentText]];
+      } else {
+        [currentEntry performSelector:setter withObject:currentText];
+      }
     }
   }
 

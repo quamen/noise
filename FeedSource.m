@@ -18,16 +18,10 @@
 
 @implementation FeedSource
 
-- (id)init {
-  if (self = [super init]) {
-    [self startStopTimer];
-  }
-  return self;
-}
-
 - (void)setEnabled:(bool)value {
   [super setEnabled:value];
   [self startStopTimer];
+  [self update];
 }
 
 - (void)startStopTimer {

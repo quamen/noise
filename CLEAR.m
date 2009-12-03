@@ -22,7 +22,9 @@
   NSArray *feedEntries = [feedParser parse];
 
   for (FeedEntry *feedEntry in feedEntries) {
-    Message *message = [[Message alloc] initWithTitle:@"Trade" content:feedEntry.title sticky:NO];
+    NSString *title = [NSString stringWithFormat:@"Trade %@", feedEntry.published];
+    NSString *content = [NSString stringWithFormat:@"%@\n%@", feedEntry.title, feedEntry.id];
+    Message *message = [[Message alloc] initWithTitle:title content:content sticky:NO];
     [self messageReceived:message];
   }
 }

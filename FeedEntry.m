@@ -10,7 +10,7 @@
 
 @implementation FeedEntry
 
-@synthesize id, title, content, published;
+@synthesize id, title, content, published, link;
 
 - (void)setGuid:(NSString *)guid {
   [self setId:[guid copy]];
