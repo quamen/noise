@@ -19,10 +19,4 @@
   return self;
 }
 
-- (void)messageReceived:(Message *)message {
-  if (delegate != nil) {
-    [delegate messageReceived:message];
-  }
-}
-
 @end

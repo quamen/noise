@@ -10,28 +10,49 @@
 
 @implementation Message
 
-@synthesize title, content, sticky, unread, priority;
-
-- (id)init {
-  if (self = [super init]) {
-    unread = true;
-    priority = 0;
-  }
-  return self;
-}
-
-
-- (id)initWithTitle:(NSString *)aTitle content:(NSString *)theContent sticky:(bool)isSticky {
-  if (self = [self init]) {
-    title = aTitle;
-    content = theContent;
-    sticky = isSticky;
-  }
-  return self;
-}
+@dynamic title, content;
 
 - (void)read {
-  unread = NO;
+  [self setUnread:NO];
+}
+
+- (int)priority {
+  [self willAccessValueForKey:@"priority"];
+  int value = priority ;
+  [self didAccessValueForKey:@"priority"];
+  return value;
+}
+
+- (void)setPriority:(int)value {
+  [self willChangeValueForKey:@"priority"];
+  priority = value;
+  [self didChangeValueForKey:@"priority"];
+}
+
+- (BOOL)unread {
+  [self willAccessValueForKey:@"unread"];
+  BOOL value = unread;
+  [self didAccessValueForKey:@"unread"];
+  return value;
+}
+
+- (void)setUnread:(BOOL)value {
+  [self willChangeValueForKey:@"unread"];
+  unread = value;
+  [self didChangeValueForKey:@"unread"];
+}
+
+- (BOOL)sticky {
+  [self willAccessValueForKey:@"sticky"];
+  BOOL value = sticky;
+  [self didAccessValueForKey:@"sticky"];
+  return value;
+}
+
+- (void)setSticky:(BOOL)value {
+  [self willChangeValueForKey:@"sticky"];
+  sticky = value;
+  [self didChangeValueForKey:@"sticky"];
 }
 
 @end

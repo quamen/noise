@@ -21,8 +21,9 @@
 		03408E9610C5166500594B6D /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408E9510C5166500594B6D /* GrowlNotifier.m */; };
 		03408ED010C520E300594B6D /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */; };
 		0394596110C7AFDF00785C37 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */; };
+		039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
-		256AC3DA0F4B6AC300CF3369 /* NoiseAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NoiseAppDelegate.m */; };
+		256AC3DA0F4B6AC300CF3369 /* NoiseApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NoiseApp.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
@@ -67,12 +68,13 @@
 		03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		0394596010C7AFDF00785C37 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
+		039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = NoiseDataModel.xcdatamodel; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		1DDD58150DA1D0A300B32029 /* English */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = English; path = English.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		256AC3D80F4B6AC300CF3369 /* NoiseAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoiseAppDelegate.h; sourceTree = "<group>"; };
-		256AC3D90F4B6AC300CF3369 /* NoiseAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoiseAppDelegate.m; sourceTree = "<group>"; };
+		256AC3D80F4B6AC300CF3369 /* NoiseApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoiseApp.h; sourceTree = "<group>"; };
+		256AC3D90F4B6AC300CF3369 /* NoiseApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoiseApp.m; sourceTree = "<group>"; };
 		256AC3F00F4B6AF500CF3369 /* Noise_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Noise_Prefix.pch; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		29B97324FDCFA39411CA2CEA /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -131,6 +133,14 @@
 			name = Notifiers;
 			sourceTree = "<group>";
 		};
+		039459F010C7C34700785C37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +149,8 @@
 				03408E6510C511BD00594B6D /* Sources */,
 				0306FF4E10C5F78200EDE268 /* Message.h */,
 				0306FF4F10C5F78200EDE268 /* Message.m */,
-				256AC3D80F4B6AC300CF3369 /* NoiseAppDelegate.h */,
-				256AC3D90F4B6AC300CF3369 /* NoiseAppDelegate.m */,
+				256AC3D80F4B6AC300CF3369 /* NoiseApp.h */,
+				256AC3D90F4B6AC300CF3369 /* NoiseApp.m */,
 				03408BE310C5063500594B6D /* Notifier.h */,
 				03408BE410C5063500594B6D /* Notifier.m */,
 				03408BD810C505C100594B6D /* Source.h */,
@@ -180,6 +190,7 @@
 		29B97314FDCFA39411CA2CEA /* Noise */ = {
 			isa = PBXGroup;
 			children = (
+				039459F010C7C34700785C37 /* Models */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -276,7 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
-				256AC3DA0F4B6AC300CF3369 /* NoiseAppDelegate.m in Sources */,
+				256AC3DA0F4B6AC300CF3369 /* NoiseApp.m in Sources */,
 				03408BDA10C505C100594B6D /* Source.m in Sources */,
 				03408BE510C5063500594B6D /* Notifier.m in Sources */,
 				03408E6810C512D400594B6D /* FeedSource.m in Sources */,
@@ -288,6 +299,7 @@
 				0306003D10C6363000EDE268 /* FeedEntry.m in Sources */,
 				0306011A10C71AB700EDE268 /* NSString+InflectionSupport.m in Sources */,
 				0394596110C7AFDF00785C37 /* ISO8601DateFormatter.m in Sources */,
+				039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

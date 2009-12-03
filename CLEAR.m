@@ -23,9 +23,8 @@
 
   for (FeedEntry *feedEntry in feedEntries) {
     NSString *title = [NSString stringWithFormat:@"Trade %@", feedEntry.published];
-    NSString *content = [NSString stringWithFormat:@"%@\n%@", feedEntry.title, feedEntry.id];
-    Message *message = [[Message alloc] initWithTitle:title content:content sticky:NO];
-    [self messageReceived:message];
+    NSString *content = [NSString stringWithFormat:@"%@", feedEntry.title];
+    [delegate messageReceivedWithTitle:title content:content priority:100 sticky:YES];
   }
 }
 

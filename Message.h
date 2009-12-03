@@ -6,22 +6,17 @@
 //  Copyright 2009 Active Pathway. All rights reserved.
 //
 
-@interface Message : NSObject {
-@private
-  NSString *title;
-  NSString *content;
-  bool sticky;
-  bool unread;
+@interface Message : NSManagedObject {
   int priority;
+  BOOL sticky;
+  BOOL unread;
 }
 
-@property (readonly, copy) NSString *title;
-@property (readonly, copy) NSString *content;
-@property (readonly, assign) bool sticky;
-@property (readonly, assign) bool unread;
-@property (readonly, assign) int priority;
-
-- (id)initWithTitle:(NSString *)aTitle content:(NSString *)theContent sticky:(bool)isSticky;
+@property (assign) NSString *title;
+@property (assign) NSString *content;
+@property int priority;
+@property BOOL sticky;
+@property BOOL unread;
 
 - (void)read;
 

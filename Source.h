@@ -17,6 +17,4 @@
 @property (readwrite, assign) id <SourceDelegate> delegate;
 @property (readwrite, assign) bool enabled;
 
-- (void)messageReceived:(Message *)message;
-
 @end

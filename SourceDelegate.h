@@ -6,10 +6,8 @@
 //  Copyright 2009 Active Pathway. All rights reserved.
 //
 
-#import "Message.h"
-
 @protocol SourceDelegate
 
-- (void)messageReceived:(Message *)message;
+- (void)messageReceivedWithTitle:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky;
 
 @end
