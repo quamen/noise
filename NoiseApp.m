@@ -58,9 +58,12 @@
 
 // SourceDelegate methods.
 
-- (void)messageReceivedFromSource:(Source *)source title:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky {
+- (void)messageReceivedFromSource:(Source *)source id:(NSString *)id title:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky {
+  // TODO: check if the message already exists.
+
   Message *message = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:[self managedObjectContext]];
   [message setSource:[source identifier]];
+  [message setId:id];
   [message setTitle:title];
   [message setContent:content];
   [message setPriority:priority];  

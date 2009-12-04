@@ -12,6 +12,7 @@
   BOOL unread;
 }
 
+@property (assign) NSString *id;
 @property (assign) NSString *source;
 @property (assign) NSString *title;
 @property (assign) NSString *content;

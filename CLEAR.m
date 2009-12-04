@@ -25,8 +25,7 @@
 
   for (FeedEntry *feedEntry in feedEntries) {
     NSString *title = [NSString stringWithFormat:@"Trade %@", feedEntry.published];
-    NSString *content = [NSString stringWithFormat:@"%@", feedEntry.title];
-    [delegate messageReceivedFromSource:self title:title content:content priority:0 sticky:NO];
+    [delegate messageReceivedFromSource:self id:feedEntry.id title:title content:feedEntry.title priority:0 sticky:NO];
   }
 }
 
