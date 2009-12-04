@@ -7,9 +7,10 @@
 //
 
 #import "FeedSource.h"
-#import "FeedParser.h"
 
 #define FEED_URL @"https://app.cleargrain.com.au/trades.atom"
+
+@class FeedParser;
 
 @interface CLEAR : FeedSource {
 @private

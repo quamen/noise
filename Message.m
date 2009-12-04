@@ -10,7 +10,7 @@
 
 @implementation Message
 
-@dynamic title, content;
+@dynamic source, title, content;
 
 - (void)read {
   [self setUnread:NO];

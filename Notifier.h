@@ -6,7 +6,7 @@
 //  Copyright 2009 Active Pathway. All rights reserved.
 //
 
-#import "Message.h"
+@class Message;
 
 @interface Notifier : NSObject {
 

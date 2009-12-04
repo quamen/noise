@@ -7,6 +7,7 @@
 //
 
 #import "GrowlNotifier.h"
+#import "Message.h"
 
 @implementation GrowlNotifier
 

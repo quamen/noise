@@ -17,4 +17,6 @@
 @property (readwrite, assign) id <SourceDelegate> delegate;
 @property (readwrite, assign) bool enabled;
 
+- (NSString *)identifier;
+
 @end

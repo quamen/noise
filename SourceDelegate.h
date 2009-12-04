@@ -6,8 +6,10 @@
 //  Copyright 2009 Active Pathway. All rights reserved.
 //
 
+@class Source;
+
 @protocol SourceDelegate
 
-- (void)messageReceivedWithTitle:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky;
+- (void)messageReceivedFromSource:(Source *)source title:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky;
 
 @end

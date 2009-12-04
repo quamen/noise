@@ -6,7 +6,7 @@
 //  Copyright 2009 Active Pathway. All rights reserved.
 //
 
-#import "FeedEntry.h"
+@class FeedEntry;
 
 @interface FeedParser : NSObject <NSXMLParserDelegate> {
 @private

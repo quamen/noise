@@ -19,4 +19,10 @@
   return self;
 }
 
+- (NSString *)identifier {
+  Class sourceClass = [self class];
+  NSBundle *sourceBundle = [NSBundle bundleForClass:sourceClass];
+  return [NSString stringWithFormat:@"%@.%@", [sourceBundle bundleIdentifier], [sourceClass description]];
+}
+
 @end

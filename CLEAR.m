@@ -7,6 +7,8 @@
 //
 
 #import "CLEAR.h"
+#import "FeedEntry.h"
+#import "FeedParser.h"
 
 @implementation CLEAR
 
@@ -24,7 +26,7 @@
   for (FeedEntry *feedEntry in feedEntries) {
     NSString *title = [NSString stringWithFormat:@"Trade %@", feedEntry.published];
     NSString *content = [NSString stringWithFormat:@"%@", feedEntry.title];
-    [delegate messageReceivedWithTitle:title content:content priority:100 sticky:YES];
+    [delegate messageReceivedFromSource:self title:title content:content priority:0 sticky:NO];
   }
 }
 

@@ -9,6 +9,7 @@
 #import "NoiseApp.h"
 #import "CLEAR.h"
 #import "GrowlNotifier.h"
+#import "Message.h"
 
 @interface NoiseApp (Private)
 
@@ -57,8 +58,9 @@
 
 // SourceDelegate methods.
 
-- (void)messageReceivedWithTitle:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky {
+- (void)messageReceivedFromSource:(Source *)source title:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky {
   Message *message = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:[self managedObjectContext]];
+  [message setSource:[source identifier]];
   [message setTitle:title];
   [message setContent:content];
   [message setPriority:priority];  

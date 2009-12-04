@@ -8,6 +8,7 @@
 
 #import <objc/runtime.h>
 #import "ISO8601DateFormatter.h"
+#import "FeedEntry.h"
 #import "FeedParser.h"
 #import "NSString+InflectionSupport.h"
 
