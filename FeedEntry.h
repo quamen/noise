@@ -11,15 +11,15 @@
   NSString *id;
   NSString *title;
   NSString *content;
-  NSDate *published;
-  NSURL *link;
+  NSDate   *published;
+  NSURL    *link;
 }
 
 @property (readwrite, copy) NSString *id;
 @property (readwrite, copy) NSString *guid;
 @property (readwrite, copy) NSString *title;
 @property (readwrite, copy) NSString *content;
-@property (readwrite, copy) NSDate *published;
-@property (readwrite, copy) NSURL *link;
+@property (readwrite, copy) NSDate   *published;
+@property (readwrite, copy) NSURL    *link;
 
 @end

@@ -11,12 +11,12 @@
 @interface NoiseApp : NSObject <NSApplicationDelegate, SourceDelegate> {
 @private
   NSWindow *window;
-  NSArray *sources;
-  NSArray *notifiers;
+  NSArray  *sources;
+  NSArray  *notifiers;
   
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
-  NSManagedObjectModel *managedObjectModel;
-  NSManagedObjectContext *managedObjectContext;
+  NSManagedObjectModel         *managedObjectModel;
+  NSManagedObjectContext       *managedObjectContext;
 }
 
 @property (assign) IBOutlet NSWindow *window;

@@ -7,7 +7,7 @@
 //
 
 @interface Message : NSManagedObject {
-  int priority;
+  int  priority;
   BOOL sticky;
   BOOL unread;
 }
@@ -16,7 +16,8 @@
 @property (assign) NSString *source;
 @property (assign) NSString *title;
 @property (assign) NSString *content;
-@property int priority;
+
+@property int  priority;
 @property BOOL sticky;
 @property BOOL unread;
 

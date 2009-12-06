@@ -10,12 +10,12 @@
 
 @interface FeedParser : NSObject <NSXMLParserDelegate> {
 @private
-  NSURL *url;
+  NSURL          *url;
   NSMutableArray *entries;
-  NSSet *properties;
-  FeedEntry *currentEntry;
-  NSString *currentProperty;
-  NSString *currentText;
+  NSSet          *properties;
+  FeedEntry      *currentEntry;
+  NSString       *currentProperty;
+  NSString       *currentText;
 }
 
 - (id)initWithUrl:(NSURL *)aUrl;
