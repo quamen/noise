@@ -11,10 +11,13 @@
 #import "GrowlNotifier.h"
 #import "Message.h"
 
+#define MESSAGE_ENTITY_NAME @"Message"
+
 @interface NoiseApp (Private)
 
 - (void)loadSources;
 - (void)loadNotifiers;
+- (BOOL)messageExistsFromSource:(Source *)source id:(NSString *)id;
 
 @end
 
@@ -42,6 +45,22 @@
   sources = [[NSArray alloc] initWithObjects:source, nil];
 }
 
+- (BOOL)messageExistsFromSource:(Source *)source id:(NSString *)id {
+  NSFetchRequest *request = [[NSFetchRequest alloc] init];
+  [request setEntity:[NSEntityDescription entityForName:MESSAGE_ENTITY_NAME inManagedObjectContext:[self managedObjectContext]]];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"source == %@ AND id == %@", [source identifier], id];
+  [request setPredicate:predicate];
+  NSError *error = nil;
+  NSArray *results = [[self managedObjectContext] executeFetchRequest:request error:&error];
+  
+  if (error) {
+    [NSApp presentError:error];
+    return NO;
+  }
+  
+  return [results count] > 0;
+}
+
 // NSApplicationDelegate methods.
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
@@ -59,9 +78,9 @@
 // SourceDelegate methods.
 
 - (void)messageReceivedFromSource:(Source *)source id:(NSString *)id title:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky {
-  // TODO: check if the message already exists.
-
-  Message *message = [NSEntityDescription insertNewObjectForEntityForName:@"Message" inManagedObjectContext:[self managedObjectContext]];
+  if ([self messageExistsFromSource:source id:id]) return;
+  
+  Message *message = [NSEntityDescription insertNewObjectForEntityForName:MESSAGE_ENTITY_NAME inManagedObjectContext:[self managedObjectContext]];
   [message setSource:[source identifier]];
   [message setId:id];
   [message setTitle:title];
