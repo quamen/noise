@@ -11,8 +11,9 @@
 @interface NoiseApp : NSObject <NSApplicationDelegate, SourceDelegate> {
 @private
   NSWindow *window;
-  NSArray  *sources;
-  NSArray  *notifiers;
+
+  NSMutableArray *sources;
+  NSMutableArray *notifiers;
   
   NSPersistentStoreCoordinator *persistentStoreCoordinator;
   NSManagedObjectModel         *managedObjectModel;

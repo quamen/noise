@@ -7,17 +7,20 @@
 //
 
 #import "NoiseApp.h"
-#import "CLEAR.h"
-#import "GrowlNotifier.h"
 #import "Message.h"
+#import "Notifier.h"
+#import "Source.h"
 
 #define MESSAGE_ENTITY_NAME @"Message"
+#define APP_SUPPORT_PLUGIN_DIR @"Application Support/Noise/PlugIns"
 
 @interface NoiseApp (Private)
 
 - (void)loadSources;
 - (void)loadNotifiers;
 - (BOOL)messageExistsFromSource:(Source *)source id:(NSString *)id;
+- (NSArray *)loadAllBundlesWithExtension:(NSString *)ext;
+- (NSMutableArray *)allBundlesWithExtension:(NSString *)ext;
 
 @end
 
@@ -35,14 +38,26 @@
 }
 
 - (void)loadNotifiers {
-  Notifier *notifier = [[GrowlNotifier alloc] init];
-  notifiers = [[NSArray alloc] initWithObjects:notifier, nil];
+  notifiers = [NSMutableArray array];
+  NSArray *klasses = [self loadAllBundlesWithExtension:@"noiseNotifier"];
+  
+  for (Class klass in klasses) {
+    // TODO: validate the plug-in.
+    Notifier *notifier = [[klass alloc] init];
+    [notifiers addObject:notifier];
+  }
 }
 
 - (void)loadSources {
-  Source *source = [[CLEAR alloc] init];
-  [source setDelegate:self];
-  sources = [[NSArray alloc] initWithObjects:source, nil];
+  sources = [NSMutableArray array];
+  NSArray *klasses = [self loadAllBundlesWithExtension:@"noiseSource"];
+  
+  for (Class klass in klasses) {
+    // TODO: validate the plug-in.
+    Source *source = [[klass alloc] init];
+    [source setDelegate:self];
+    [sources addObject:source];
+  }
 }
 
 - (BOOL)messageExistsFromSource:(Source *)source id:(NSString *)id {
@@ -261,4 +276,64 @@
   return NSTerminateNow;
 }
 
+- (NSArray *)loadAllBundlesWithExtension:(NSString *)ext {
+  NSMutableArray *instances;
+  NSMutableArray *bundlePaths;
+  NSEnumerator *pathEnum;
+  NSString *currPath;
+  NSBundle *currBundle;
+  Class currPrincipalClass;
+  
+  instances = [NSMutableArray array];
+  bundlePaths = [NSMutableArray array];
+  
+  [bundlePaths addObjectsFromArray:[self allBundlesWithExtension:ext]];
+  pathEnum = [bundlePaths objectEnumerator];
+  
+  while (currPath = [pathEnum nextObject]) {
+    currBundle = [NSBundle bundleWithPath:currPath];
+    if (currBundle) {
+      currPrincipalClass = [currBundle principalClass];
+      if (currPrincipalClass) {
+        [instances addObject:currPrincipalClass];
+      }
+    }
+  }
+  
+  return instances;
+}
+
+- (NSMutableArray *)allBundlesWithExtension:(NSString *)ext {
+  NSArray *librarySearchPaths;
+  NSEnumerator *searchPathEnum;
+  NSString *currPath;
+  NSMutableArray *bundleSearchPaths = [NSMutableArray array];
+  NSMutableArray *allBundles = [NSMutableArray array];
+
+  librarySearchPaths = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSAllDomainsMask - NSSystemDomainMask, YES);
+  searchPathEnum = [librarySearchPaths objectEnumerator];
+  
+  while (currPath = [searchPathEnum nextObject]) {
+    [bundleSearchPaths addObject:[currPath stringByAppendingPathComponent:APP_SUPPORT_PLUGIN_DIR]];
+  }
+  
+  [bundleSearchPaths addObject:[[NSBundle mainBundle] builtInPlugInsPath]];
+  searchPathEnum = [bundleSearchPaths objectEnumerator];
+  
+  while (currPath = [searchPathEnum nextObject]) {
+    NSDirectoryEnumerator *bundleEnum;
+    NSString *currBundlePath;
+    bundleEnum = [[NSFileManager defaultManager] enumeratorAtPath:currPath];
+    if (bundleEnum) {
+      while (currBundlePath = [bundleEnum nextObject]) {
+        if ([[currBundlePath pathExtension] isEqualToString:ext]) {
+          [allBundles addObject:[currPath stringByAppendingPathComponent:currBundlePath]];
+        }
+      }
+    }
+  }
+  
+  return allBundles;
+}
+    
 @end

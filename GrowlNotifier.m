@@ -13,8 +13,19 @@
 
 - (id)init {
   if (self = [super init]) {
-    [GrowlApplicationBridge setGrowlDelegate:self];
+		NSString *privateFrameworksPath = [[NSBundle bundleForClass:[self class]] privateFrameworksPath];
+		NSString *growlBundlePath = [privateFrameworksPath stringByAppendingPathComponent:@"Growl.framework"];
+		NSBundle *growlBundle = [NSBundle bundleWithPath:growlBundlePath];
+    
+		if (growlBundle) {
+			if ([growlBundle load]) {
+        [GrowlApplicationBridge setGrowlDelegate:self];
+      }
+    } else {
+      NSLog(@"Could not load Growl.framework, GrowlNotifier disabled");
+    }
   }
+  
   return self;
 }
 

@@ -6,6 +6,8 @@
 //  Copyright 2009 Active Pathway. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
+
 @interface Message : NSManagedObject {
   int  priority;
   BOOL sticky;

@@ -7,21 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0306003410C6321100EDE268 /* FeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306003310C6321100EDE268 /* FeedParser.m */; };
-		0306003D10C6363000EDE268 /* FeedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306003C10C6363000EDE268 /* FeedEntry.m */; };
 		0306011A10C71AB700EDE268 /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306011810C71AB700EDE268 /* NSString+InflectionSupport.m */; };
-		0306FF4A10C5F67F00EDE268 /* CLEAR.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4910C5F67F00EDE268 /* CLEAR.m */; };
-		0306FF4D10C5F6BB00EDE268 /* CruiseControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4C10C5F6BB00EDE268 /* CruiseControl.m */; };
-		0306FF5010C5F78200EDE268 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4F10C5F78200EDE268 /* Message.m */; };
-		03408BDA10C505C100594B6D /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408BD910C505C100594B6D /* Source.m */; };
-		03408BE510C5063500594B6D /* Notifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408BE410C5063500594B6D /* Notifier.m */; };
-		03408E6810C512D400594B6D /* FeedSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408E6710C512D400594B6D /* FeedSource.m */; };
-		03408E8610C515FA00594B6D /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03408E8510C515FA00594B6D /* Growl.framework */; };
-		03408E8F10C5161600594B6D /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03408E8510C515FA00594B6D /* Growl.framework */; };
-		03408E9610C5166500594B6D /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408E9510C5166500594B6D /* GrowlNotifier.m */; };
-		03408ED010C520E300594B6D /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */; };
-		0394596110C7AFDF00785C37 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */; };
 		039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */; };
+		03C2C40310CC6C3C00DE9BF2 /* CLEARSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4910C5F67F00EDE268 /* CLEARSource.m */; };
+		03C2C41310CC700F00DE9BF2 /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408BD910C505C100594B6D /* Source.m */; };
+		03C2C41410CC701000DE9BF2 /* SourceDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 03408D3210C50B3B00594B6D /* SourceDelegate.h */; };
+		03C2C41510CC701300DE9BF2 /* Source.h in Headers */ = {isa = PBXBuildFile; fileRef = 03408BD810C505C100594B6D /* Source.h */; };
+		03C2C41610CC701800DE9BF2 /* Notifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408BE410C5063500594B6D /* Notifier.m */; };
+		03C2C41710CC701800DE9BF2 /* Notifier.h in Headers */ = {isa = PBXBuildFile; fileRef = 03408BE310C5063500594B6D /* Notifier.h */; };
+		03C2C41810CC702600DE9BF2 /* FeedEntry.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306003B10C6363000EDE268 /* FeedEntry.h */; };
+		03C2C41910CC702700DE9BF2 /* FeedEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306003C10C6363000EDE268 /* FeedEntry.m */; };
+		03C2C41C10CC703100DE9BF2 /* FeedParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306003210C6321100EDE268 /* FeedParser.h */; };
+		03C2C41D10CC703200DE9BF2 /* FeedParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306003310C6321100EDE268 /* FeedParser.m */; };
+		03C2C41E10CC703300DE9BF2 /* FeedSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408E6710C512D400594B6D /* FeedSource.m */; };
+		03C2C41F10CC703600DE9BF2 /* FeedSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03408E6610C512D400594B6D /* FeedSource.h */; };
+		03C2C42410CC709300DE9BF2 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */; };
+		03C2C42510CC709C00DE9BF2 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 0394596010C7AFDF00785C37 /* ISO8601DateFormatter.h */; };
+		03C2C4F210CC89CF00DE9BF2 /* CLEAR.noiseSource in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03C2C3E010CC66F700DE9BF2 /* CLEAR.noiseSource */; };
+		03C2C56510CC95D100DE9BF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		03C2C56710CC95DC00DE9BF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		03C2C5F410CCA29C00DE9BF2 /* GrowlNotifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408E9510C5166500594B6D /* GrowlNotifier.m */; };
+		03C2C5FC10CCA36200DE9BF2 /* Growl.noiseNotifier in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */; };
+		03C2C62E10CCA45300DE9BF2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
+		03C2C64710CCA62900DE9BF2 /* Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306FF4E10C5F78200EDE268 /* Message.h */; };
+		03C2C64810CCA62900DE9BF2 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4F10C5F78200EDE268 /* Message.m */; };
+		03C2C65410CCA66B00DE9BF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E42FB307B3F0F600E4EEF1 /* CoreData.framework */; };
+		03C2C6B410CCAA8800DE9BF2 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03408E8510C515FA00594B6D /* Growl.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		03C2C6E510CCAF3A00DE9BF2 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */; };
+		03C2C70C10CCB37C00DE9BF2 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03408E8510C515FA00594B6D /* Growl.framework */; };
+		03C2C81610CD947A00DE9BF2 /* noise.icns in Resources */ = {isa = PBXBuildFile; fileRef = 03C2C81510CD947A00DE9BF2 /* noise.icns */; };
+		03C2C89610CDB0B000DE9BF2 /* Noise.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
+		03C2C8D010CDB1FB00DE9BF2 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
+		03C2C8D110CDB20300DE9BF2 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NoiseApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NoiseApp.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -29,14 +46,73 @@
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		03C2C4F710CC89E700DE9BF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03C2C3DF10CC66F700DE9BF2;
+			remoteInfo = CLEAR;
+		};
+		03C2C51310CC8AA400DE9BF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03C2C40810CC6F5700DE9BF2;
+			remoteInfo = Noise.framework;
+		};
+		03C2C51610CC8AAB00DE9BF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03C2C40810CC6F5700DE9BF2;
+			remoteInfo = Noise.framework;
+		};
+		03C2C5ED10CCA26C00DE9BF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03C2C40810CC6F5700DE9BF2;
+			remoteInfo = Noise.framework;
+		};
+		03C2C60710CCA38E00DE9BF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03C2C5E610CCA23400DE9BF2;
+			remoteInfo = Growl;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		03408E9010C5163400594B6D /* CopyFiles */ = {
+		03C2C44A10CC827600DE9BF2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				03C2C4F210CC89CF00DE9BF2 /* CLEAR.noiseSource in CopyFiles */,
+				03C2C5FC10CCA36200DE9BF2 /* Growl.noiseNotifier in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C71810CCB3A000DE9BF2 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				03408E8F10C5161600594B6D /* Growl.framework in CopyFiles */,
+				03C2C70C10CCB37C00DE9BF2 /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C87410CDAE9700DE9BF2 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				03C2C89610CDB0B000DE9BF2 /* Noise.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -49,8 +125,8 @@
 		0306003C10C6363000EDE268 /* FeedEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeedEntry.m; sourceTree = "<group>"; };
 		0306011810C71AB700EDE268 /* NSString+InflectionSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+InflectionSupport.m"; sourceTree = "<group>"; };
 		0306011910C71AB700EDE268 /* NSString+InflectionSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+InflectionSupport.h"; sourceTree = "<group>"; };
-		0306FF4810C5F67F00EDE268 /* CLEAR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLEAR.h; sourceTree = "<group>"; };
-		0306FF4910C5F67F00EDE268 /* CLEAR.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLEAR.m; sourceTree = "<group>"; };
+		0306FF4810C5F67F00EDE268 /* CLEARSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLEARSource.h; sourceTree = "<group>"; };
+		0306FF4910C5F67F00EDE268 /* CLEARSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLEARSource.m; sourceTree = "<group>"; };
 		0306FF4B10C5F6BB00EDE268 /* CruiseControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CruiseControl.h; sourceTree = "<group>"; };
 		0306FF4C10C5F6BB00EDE268 /* CruiseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CruiseControl.m; sourceTree = "<group>"; };
 		0306FF4E10C5F78200EDE268 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
@@ -69,6 +145,13 @@
 		0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		0394596010C7AFDF00785C37 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = NoiseDataModel.xcdatamodel; sourceTree = "<group>"; };
+		03C2C3E010CC66F700DE9BF2 /* CLEAR.noiseSource */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CLEAR.noiseSource; sourceTree = BUILT_PRODUCTS_DIR; };
+		03C2C3E110CC66F700DE9BF2 /* CLEAR-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CLEAR-Info.plist"; sourceTree = "<group>"; };
+		03C2C40910CC6F5700DE9BF2 /* Noise.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Noise.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Noise.framework-Info.plist"; sourceTree = "<group>"; };
+		03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Growl.noiseNotifier; sourceTree = BUILT_PRODUCTS_DIR; };
+		03C2C5E810CCA23400DE9BF2 /* Growl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Growl-Info.plist"; sourceTree = "<group>"; };
+		03C2C81510CD947A00DE9BF2 /* noise.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = noise.icns; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -84,12 +167,39 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03C2C3DE10CC66F700DE9BF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C56710CC95DC00DE9BF2 /* Cocoa.framework in Frameworks */,
+				03C2C8D110CDB20300DE9BF2 /* Noise.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C40710CC6F5700DE9BF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C56510CC95D100DE9BF2 /* Cocoa.framework in Frameworks */,
+				03C2C65410CCA66B00DE9BF2 /* CoreData.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C5E510CCA23400DE9BF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C62E10CCA45300DE9BF2 /* Cocoa.framework in Frameworks */,
+				03C2C6B410CCAA8800DE9BF2 /* Growl.framework in Frameworks */,
+				03C2C8D010CDB1FB00DE9BF2 /* Noise.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
-				03408E8610C515FA00594B6D /* Growl.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,28 +217,10 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
-		03408E6510C511BD00594B6D /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				0306FF4810C5F67F00EDE268 /* CLEAR.h */,
-				0306FF4910C5F67F00EDE268 /* CLEAR.m */,
-				0306FF4B10C5F6BB00EDE268 /* CruiseControl.h */,
-				0306FF4C10C5F6BB00EDE268 /* CruiseControl.m */,
-				0306003B10C6363000EDE268 /* FeedEntry.h */,
-				0306003C10C6363000EDE268 /* FeedEntry.m */,
-				0306003210C6321100EDE268 /* FeedParser.h */,
-				0306003310C6321100EDE268 /* FeedParser.m */,
-				03408E6610C512D400594B6D /* FeedSource.h */,
-				03408E6710C512D400594B6D /* FeedSource.m */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
 		03408E9310C5165300594B6D /* Notifiers */ = {
 			isa = PBXGroup;
 			children = (
-				03408E9410C5166500594B6D /* GrowlNotifier.h */,
-				03408E9510C5166500594B6D /* GrowlNotifier.m */,
+				03C2C53210CC904E00DE9BF2 /* Growl */,
 			);
 			name = Notifiers;
 			sourceTree = "<group>";
@@ -141,12 +233,62 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		03C2C52E10CC8F8C00DE9BF2 /* PlugIns */ = {
+			isa = PBXGroup;
+			children = (
+				03408E9310C5165300594B6D /* Notifiers */,
+				03C2C52F10CC8FD200DE9BF2 /* Sources */,
+			);
+			name = PlugIns;
+			sourceTree = "<group>";
+		};
+		03C2C52F10CC8FD200DE9BF2 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				03C2C53010CC903500DE9BF2 /* CLEAR */,
+				03C2C53110CC903E00DE9BF2 /* CruiseControl */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		03C2C53010CC903500DE9BF2 /* CLEAR */ = {
+			isa = PBXGroup;
+			children = (
+				03C2C3E110CC66F700DE9BF2 /* CLEAR-Info.plist */,
+				0306FF4810C5F67F00EDE268 /* CLEARSource.h */,
+				0306FF4910C5F67F00EDE268 /* CLEARSource.m */,
+			);
+			name = CLEAR;
+			sourceTree = "<group>";
+		};
+		03C2C53110CC903E00DE9BF2 /* CruiseControl */ = {
+			isa = PBXGroup;
+			children = (
+				0306FF4B10C5F6BB00EDE268 /* CruiseControl.h */,
+				0306FF4C10C5F6BB00EDE268 /* CruiseControl.m */,
+			);
+			name = CruiseControl;
+			sourceTree = "<group>";
+		};
+		03C2C53210CC904E00DE9BF2 /* Growl */ = {
+			isa = PBXGroup;
+			children = (
+				03408E9410C5166500594B6D /* GrowlNotifier.h */,
+				03408E9510C5166500594B6D /* GrowlNotifier.m */,
+			);
+			name = Growl;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
 				0320219010C73662000C9546 /* Util */,
-				03408E9310C5165300594B6D /* Notifiers */,
-				03408E6510C511BD00594B6D /* Sources */,
+				0306003B10C6363000EDE268 /* FeedEntry.h */,
+				0306003C10C6363000EDE268 /* FeedEntry.m */,
+				0306003210C6321100EDE268 /* FeedParser.h */,
+				0306003310C6321100EDE268 /* FeedParser.m */,
+				03408E6610C512D400594B6D /* FeedSource.h */,
+				03408E6710C512D400594B6D /* FeedSource.m */,
 				0306FF4E10C5F78200EDE268 /* Message.h */,
 				0306FF4F10C5F78200EDE268 /* Message.m */,
 				256AC3D80F4B6AC300CF3369 /* NoiseApp.h */,
@@ -183,6 +325,9 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Noise.app */,
+				03C2C3E010CC66F700DE9BF2 /* CLEAR.noiseSource */,
+				03C2C40910CC6F5700DE9BF2 /* Noise.framework */,
+				03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -191,11 +336,14 @@
 			isa = PBXGroup;
 			children = (
 				039459F010C7C34700785C37 /* Models */,
+				03C2C52E10CC8F8C00DE9BF2 /* PlugIns */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
+				03C2C5E810CCA23400DE9BF2 /* Growl-Info.plist */,
 			);
 			name = Noise;
 			sourceTree = "<group>";
@@ -212,6 +360,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				03C2C81510CD947A00DE9BF2 /* noise.icns */,
 				03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */,
 				8D1107310486CEB800E47090 /* Noise-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
@@ -231,7 +380,80 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		03C2C40410CC6F5700DE9BF2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C41410CC701000DE9BF2 /* SourceDelegate.h in Headers */,
+				03C2C41510CC701300DE9BF2 /* Source.h in Headers */,
+				03C2C41710CC701800DE9BF2 /* Notifier.h in Headers */,
+				03C2C41810CC702600DE9BF2 /* FeedEntry.h in Headers */,
+				03C2C41C10CC703100DE9BF2 /* FeedParser.h in Headers */,
+				03C2C41F10CC703600DE9BF2 /* FeedSource.h in Headers */,
+				03C2C42510CC709C00DE9BF2 /* ISO8601DateFormatter.h in Headers */,
+				03C2C64710CCA62900DE9BF2 /* Message.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		03C2C3DF10CC66F700DE9BF2 /* CLEAR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03C2C3E510CC66F800DE9BF2 /* Build configuration list for PBXNativeTarget "CLEAR" */;
+			buildPhases = (
+				03C2C3DC10CC66F700DE9BF2 /* Resources */,
+				03C2C3DD10CC66F700DE9BF2 /* Sources */,
+				03C2C3DE10CC66F700DE9BF2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03C2C51710CC8AAB00DE9BF2 /* PBXTargetDependency */,
+			);
+			name = CLEAR;
+			productName = CLEAR;
+			productReference = 03C2C3E010CC66F700DE9BF2 /* CLEAR.noiseSource */;
+			productType = "com.apple.product-type.bundle";
+		};
+		03C2C40810CC6F5700DE9BF2 /* Noise.framework */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03C2C41010CC6F5800DE9BF2 /* Build configuration list for PBXNativeTarget "Noise.framework" */;
+			buildPhases = (
+				03C2C40410CC6F5700DE9BF2 /* Headers */,
+				03C2C40510CC6F5700DE9BF2 /* Resources */,
+				03C2C40610CC6F5700DE9BF2 /* Sources */,
+				03C2C40710CC6F5700DE9BF2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Noise.framework;
+			productName = NoiseSDK;
+			productReference = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		03C2C5E610CCA23400DE9BF2 /* Growl */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03C2C5EB10CCA23500DE9BF2 /* Build configuration list for PBXNativeTarget "Growl" */;
+			buildPhases = (
+				03C2C5E310CCA23400DE9BF2 /* Resources */,
+				03C2C5E410CCA23400DE9BF2 /* Sources */,
+				03C2C5E510CCA23400DE9BF2 /* Frameworks */,
+				03C2C71810CCB3A000DE9BF2 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03C2C5EE10CCA26C00DE9BF2 /* PBXTargetDependency */,
+			);
+			name = Growl;
+			productName = Growl;
+			productReference = 03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8D1107260486CEB800E47090 /* Noise */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Noise" */;
@@ -239,11 +461,15 @@
 				8D1107290486CEB800E47090 /* Resources */,
 				8D11072C0486CEB800E47090 /* Sources */,
 				8D11072E0486CEB800E47090 /* Frameworks */,
-				03408E9010C5163400594B6D /* CopyFiles */,
+				03C2C87410CDAE9700DE9BF2 /* CopyFiles */,
+				03C2C44A10CC827600DE9BF2 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				03C2C4F810CC89E700DE9BF2 /* PBXTargetDependency */,
+				03C2C51410CC8AA400DE9BF2 /* PBXTargetDependency */,
+				03C2C60810CCA38E00DE9BF2 /* PBXTargetDependency */,
 			);
 			name = Noise;
 			productInstallPath = "$(HOME)/Applications";
@@ -264,46 +490,119 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Noise */,
+				03C2C40810CC6F5700DE9BF2 /* Noise.framework */,
+				03C2C3DF10CC66F700DE9BF2 /* CLEAR */,
+				03C2C5E610CCA23400DE9BF2 /* Growl */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		03C2C3DC10CC66F700DE9BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C40510CC6F5700DE9BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C5E310CCA23400DE9BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C6E510CCAF3A00DE9BF2 /* Growl Registration Ticket.growlRegDict in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				03408ED010C520E300594B6D /* Growl Registration Ticket.growlRegDict in Resources */,
+				03C2C81610CD947A00DE9BF2 /* noise.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		03C2C3DD10CC66F700DE9BF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C40310CC6C3C00DE9BF2 /* CLEARSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C40610CC6F5700DE9BF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C41310CC700F00DE9BF2 /* Source.m in Sources */,
+				03C2C41610CC701800DE9BF2 /* Notifier.m in Sources */,
+				03C2C41910CC702700DE9BF2 /* FeedEntry.m in Sources */,
+				03C2C41D10CC703200DE9BF2 /* FeedParser.m in Sources */,
+				03C2C41E10CC703300DE9BF2 /* FeedSource.m in Sources */,
+				03C2C42410CC709300DE9BF2 /* ISO8601DateFormatter.m in Sources */,
+				03C2C64810CCA62900DE9BF2 /* Message.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03C2C5E410CCA23400DE9BF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03C2C5F410CCA29C00DE9BF2 /* GrowlNotifier.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* NoiseApp.m in Sources */,
-				03408BDA10C505C100594B6D /* Source.m in Sources */,
-				03408BE510C5063500594B6D /* Notifier.m in Sources */,
-				03408E6810C512D400594B6D /* FeedSource.m in Sources */,
-				03408E9610C5166500594B6D /* GrowlNotifier.m in Sources */,
-				0306FF4A10C5F67F00EDE268 /* CLEAR.m in Sources */,
-				0306FF4D10C5F6BB00EDE268 /* CruiseControl.m in Sources */,
-				0306FF5010C5F78200EDE268 /* Message.m in Sources */,
-				0306003410C6321100EDE268 /* FeedParser.m in Sources */,
-				0306003D10C6363000EDE268 /* FeedEntry.m in Sources */,
 				0306011A10C71AB700EDE268 /* NSString+InflectionSupport.m in Sources */,
-				0394596110C7AFDF00785C37 /* ISO8601DateFormatter.m in Sources */,
 				039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03C2C4F810CC89E700DE9BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03C2C3DF10CC66F700DE9BF2 /* CLEAR */;
+			targetProxy = 03C2C4F710CC89E700DE9BF2 /* PBXContainerItemProxy */;
+		};
+		03C2C51410CC8AA400DE9BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03C2C40810CC6F5700DE9BF2 /* Noise.framework */;
+			targetProxy = 03C2C51310CC8AA400DE9BF2 /* PBXContainerItemProxy */;
+		};
+		03C2C51710CC8AAB00DE9BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03C2C40810CC6F5700DE9BF2 /* Noise.framework */;
+			targetProxy = 03C2C51610CC8AAB00DE9BF2 /* PBXContainerItemProxy */;
+		};
+		03C2C5EE10CCA26C00DE9BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03C2C40810CC6F5700DE9BF2 /* Noise.framework */;
+			targetProxy = 03C2C5ED10CCA26C00DE9BF2 /* PBXContainerItemProxy */;
+		};
+		03C2C60810CCA38E00DE9BF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03C2C5E610CCA23400DE9BF2 /* Growl */;
+			targetProxy = 03C2C60710CCA38E00DE9BF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -325,6 +624,182 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		03C2C3E310CC66F800DE9BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor/frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "CLEAR-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = CLEAR;
+				WRAPPER_EXTENSION = noiseSource;
+			};
+			name = Debug;
+		};
+		03C2C3E410CC66F800DE9BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor/frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "CLEAR-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = CLEAR;
+				WRAPPER_EXTENSION = noiseSource;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		03C2C40E10CC6F5800DE9BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Noise.framework-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Noise;
+			};
+			name = Debug;
+		};
+		03C2C40F10CC6F5800DE9BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				FRAMEWORK_VERSION = A;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Noise.framework-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Noise;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+		03C2C5E910CCA23500DE9BF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor/frameworks\"",
+				);
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Growl-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Growl;
+				WRAPPER_EXTENSION = noiseNotifier;
+			};
+			name = Debug;
+		};
+		03C2C5EA10CCA23500DE9BF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/vendor/frameworks\"",
+				);
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Growl-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Growl;
+				WRAPPER_EXTENSION = noiseNotifier;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -397,6 +872,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		03C2C3E510CC66F800DE9BF2 /* Build configuration list for PBXNativeTarget "CLEAR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03C2C3E310CC66F800DE9BF2 /* Debug */,
+				03C2C3E410CC66F800DE9BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03C2C41010CC6F5800DE9BF2 /* Build configuration list for PBXNativeTarget "Noise.framework" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03C2C40E10CC6F5800DE9BF2 /* Debug */,
+				03C2C40F10CC6F5800DE9BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03C2C5EB10CCA23500DE9BF2 /* Build configuration list for PBXNativeTarget "Growl" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03C2C5E910CCA23500DE9BF2 /* Debug */,
+				03C2C5EA10CCA23500DE9BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Noise" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
