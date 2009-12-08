@@ -32,12 +32,10 @@
 		03C2C64710CCA62900DE9BF2 /* Message.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306FF4E10C5F78200EDE268 /* Message.h */; };
 		03C2C64810CCA62900DE9BF2 /* Message.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4F10C5F78200EDE268 /* Message.m */; };
 		03C2C65410CCA66B00DE9BF2 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13E42FB307B3F0F600E4EEF1 /* CoreData.framework */; };
-		03C2C6B410CCAA8800DE9BF2 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03408E8510C515FA00594B6D /* Growl.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		03C2C6E510CCAF3A00DE9BF2 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */; };
 		03C2C70C10CCB37C00DE9BF2 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03408E8510C515FA00594B6D /* Growl.framework */; };
 		03C2C81610CD947A00DE9BF2 /* noise.icns in Resources */ = {isa = PBXBuildFile; fileRef = 03C2C81510CD947A00DE9BF2 /* noise.icns */; };
 		03C2C89610CDB0B000DE9BF2 /* Noise.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
-		03C2C8D010CDB1FB00DE9BF2 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
+		03C2C8D010CDB1FB00DE9BF2 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		03C2C8D110CDB20300DE9BF2 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NoiseApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NoiseApp.m */; };
@@ -141,7 +139,6 @@
 		03408E8510C515FA00594B6D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = vendor/frameworks/Growl.framework; sourceTree = "<group>"; };
 		03408E9410C5166500594B6D /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
 		03408E9510C5166500594B6D /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
-		03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = "<group>"; };
 		0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		0394596010C7AFDF00785C37 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = NoiseDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -190,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				03C2C62E10CCA45300DE9BF2 /* Cocoa.framework in Frameworks */,
-				03C2C6B410CCAA8800DE9BF2 /* Growl.framework in Frameworks */,
 				03C2C8D010CDB1FB00DE9BF2 /* Noise.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,8 +338,6 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
-				03C2C5E810CCA23400DE9BF2 /* Growl-Info.plist */,
 			);
 			name = Noise;
 			sourceTree = "<group>";
@@ -360,8 +354,9 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
+				03C2C5E810CCA23400DE9BF2 /* Growl-Info.plist */,
 				03C2C81510CD947A00DE9BF2 /* noise.icns */,
-				03408ECF10C520E300594B6D /* Growl Registration Ticket.growlRegDict */,
 				8D1107310486CEB800E47090 /* Noise-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -440,9 +435,10 @@
 			buildConfigurationList = 03C2C5EB10CCA23500DE9BF2 /* Build configuration list for PBXNativeTarget "Growl" */;
 			buildPhases = (
 				03C2C5E310CCA23400DE9BF2 /* Resources */,
+				03C2C71810CCB3A000DE9BF2 /* CopyFiles */,
 				03C2C5E410CCA23400DE9BF2 /* Sources */,
 				03C2C5E510CCA23400DE9BF2 /* Frameworks */,
-				03C2C71810CCB3A000DE9BF2 /* CopyFiles */,
+				03B070FB10CDF0500006412A /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -516,7 +512,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				03C2C6E510CCAF3A00DE9BF2 /* Growl Registration Ticket.growlRegDict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,6 +526,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		03B070FB10CDF0500006412A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -change \"@executable_path/../Frameworks/Growl.framework/Versions/A/Growl\" \"@loader_path/../Frameworks/Growl.framework/Versions/A/Growl\" $BUILT_PRODUCTS_DIR/$EXECUTABLE_PATH\n\ninstall_name_tool -id \"@loader_path/../Frameworks/Growl.framework/Versions/A/Growl\" $BUILT_PRODUCTS_DIR/$FULL_PRODUCT_NAME/Contents/Frameworks/Growl.framework/Growl";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		03C2C3DD10CC66F700DE9BF2 /* Sources */ = {
@@ -700,7 +712,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "Noise.framework-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -709,6 +721,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Noise;
+				SKIP_INSTALL = YES;
 			};
 			name = Debug;
 		};
@@ -727,7 +740,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
 				INFOPLIST_FILE = "Noise.framework-Info.plist";
-				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				INSTALL_PATH = "@executable_path/../Frameworks";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Foundation,
@@ -736,6 +749,7 @@
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Noise;
+				SKIP_INSTALL = YES;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -763,6 +777,8 @@
 					Foundation,
 					"-framework",
 					AppKit,
+					"-framework",
+					Growl,
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Growl;
@@ -792,6 +808,8 @@
 					Foundation,
 					"-framework",
 					AppKit,
+					"-framework",
+					Growl,
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = Growl;

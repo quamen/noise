@@ -9,8 +9,14 @@
 #import <Growl/Growl.h>
 #import "Notifier.h"
 
+#define NOISE_NOTIFICATION @"Noise Notification"
+
 @interface GrowlNotifier : Notifier <GrowlApplicationBridgeDelegate> {
 
 }
+
+- (NSString *)applicationNameForGrowl;
+- (NSImage *)applicationIconForGrowl;
+- (NSDictionary *)registrationDictionaryForGrowl;
 
 @end
