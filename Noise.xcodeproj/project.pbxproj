@@ -269,6 +269,7 @@
 		03C2C53210CC904E00DE9BF2 /* Growl */ = {
 			isa = PBXGroup;
 			children = (
+				03C2C5E810CCA23400DE9BF2 /* Growl-Info.plist */,
 				03408E9410C5166500594B6D /* GrowlNotifier.h */,
 				03408E9510C5166500594B6D /* GrowlNotifier.m */,
 			);
@@ -354,12 +355,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
-				03C2C5E810CCA23400DE9BF2 /* Growl-Info.plist */,
-				03C2C81510CD947A00DE9BF2 /* noise.icns */,
-				8D1107310486CEB800E47090 /* Noise-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
+				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
+				03C2C81510CD947A00DE9BF2 /* noise.icns */,
+				8D1107310486CEB800E47090 /* Noise-Info.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
