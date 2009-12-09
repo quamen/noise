@@ -223,7 +223,7 @@
 			name = Notifiers;
 			sourceTree = "<group>";
 		};
-		0358C67710D03F8B00954E9B /* NoiseApp */ = {
+		0358C67710D03F8B00954E9B /* Noise.app */ = {
 			isa = PBXGroup;
 			children = (
 				0358C68010D0405A00954E9B /* Headers */,
@@ -231,7 +231,7 @@
 				256AC3D80F4B6AC300CF3369 /* NoiseApp.h */,
 				256AC3D90F4B6AC300CF3369 /* NoiseApp.m */,
 			);
-			name = NoiseApp;
+			name = Noise.app;
 			sourceTree = "<group>";
 		};
 		0358C68010D0405A00954E9B /* Headers */ = {
@@ -343,8 +343,8 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Noise.app */,
-				03C2C3E010CC66F700DE9BF2 /* CLEAR.noiseSource */,
 				03C2C40910CC6F5700DE9BF2 /* Noise.framework */,
+				03C2C3E010CC66F700DE9BF2 /* CLEAR.noiseSource */,
 				03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */,
 			);
 			name = Products;
@@ -353,8 +353,8 @@
 		29B97314FDCFA39411CA2CEA /* Noise */ = {
 			isa = PBXGroup;
 			children = (
+				0358C67710D03F8B00954E9B /* Noise.app */,
 				080E96DDFE201D6D7F000001 /* Noise.framework */,
-				0358C67710D03F8B00954E9B /* NoiseApp */,
 				03C2C52E10CC8F8C00DE9BF2 /* PlugIns */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
