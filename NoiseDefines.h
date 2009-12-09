@@ -3,7 +3,7 @@
  *  noise
  *
  *  Created by Joshua Bassett on 10/12/09.
- *  Copyright 2009 Active Pathway. All rights reserved.
+ *  Copyright 2009 CLEAR Interactive. All rights reserved.
  *
  */
 
