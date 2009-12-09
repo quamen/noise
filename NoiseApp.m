@@ -11,9 +11,6 @@
 #import "Notifier.h"
 #import "Source.h"
 
-#define MESSAGE_ENTITY_NAME @"Message"
-#define APP_SUPPORT_PLUGIN_DIR @"Application Support/Noise/PlugIns"
-
 @interface NoiseApp (Private)
 
 - (void)loadSources;
@@ -21,6 +18,7 @@
 - (BOOL)messageExistsFromSource:(Source *)source id:(NSString *)id;
 - (NSArray *)loadAllBundlesWithExtension:(NSString *)ext;
 - (NSMutableArray *)allBundlesWithExtension:(NSString *)ext;
+- (void)saveAction;
 
 @end
 
@@ -76,7 +74,8 @@
   return [results count] > 0;
 }
 
-// NSApplicationDelegate methods.
+#pragma mark -
+#pragma mark NSApplicationDelegate methods
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
   for (Source *source in sources) {
@@ -90,9 +89,10 @@
   }
 }
 
-// SourceDelegate methods.
+#pragma mark -
+#pragma mark SourceDelegate methods
 
-- (void)messageReceivedFromSource:(Source *)source id:(NSString *)id title:(NSString *)title content:(NSString *)content priority:(int)priority sticky:(BOOL)sticky {
+- (void)messageReceivedFromSource:(Source *)source id:(NSString *)id title:(NSString *)title content:(NSString *)content received:(NSDate *)received priority:(int)priority sticky:(BOOL)sticky {
   if ([self messageExistsFromSource:source id:id]) return;
   
   Message *message = [NSEntityDescription insertNewObjectForEntityForName:MESSAGE_ENTITY_NAME inManagedObjectContext:[self managedObjectContext]];
@@ -100,14 +100,18 @@
   [message setId:id];
   [message setTitle:title];
   [message setContent:content];
+  [message setReceived:received];
   [message setPriority:priority];  
   [message setSticky:sticky];
-  [self saveAction:nil];
+  [self saveAction];
 
   for (Notifier *notifier in notifiers) {
     [notifier notify:message];
   }
 }
+
+
+#pragma mark -
 
 /**
  Returns the support directory for the application, used to store the Core Data
@@ -214,7 +218,7 @@
  message to the application's managed object context.  Any encountered errors
  are presented to the user.
  */
-- (IBAction)saveAction:(id)sender {
+- (void)saveAction {
   NSError *error = nil;
   
   if (![[self managedObjectContext] commitEditing]) {

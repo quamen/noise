@@ -15,8 +15,4 @@
 
 }
 
-- (NSString *)applicationNameForGrowl;
-- (NSImage *)applicationIconForGrowl;
-- (NSDictionary *)registrationDictionaryForGrowl;
-
 @end

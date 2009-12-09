@@ -7,6 +7,7 @@
 //
 
 #import "FeedSource.h"
+#import "FeedParser.h"
 
 @interface FeedSource (Private)
 
@@ -17,6 +18,13 @@
 
 
 @implementation FeedSource
+
+- (id)init {
+  if (self = [super init]) {
+    feedParser = [[FeedParser alloc] initWithUrl:[self feedURL]];
+  }
+  return self;
+}
 
 - (void)setEnabled:(bool)value {
   [super setEnabled:value];
@@ -37,6 +45,12 @@
 
 - (void)update {
   // Abstract method.
+}
+
+
+- (NSURL *)feedURL {
+  // Abstract method.
+  return nil;
 }
 
 @end

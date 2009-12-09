@@ -12,12 +12,8 @@
 
 @implementation CLEARSource
 
-- (id)init {
-  if (self = [super init]) {
-    NSURL *url = [NSURL URLWithString:FEED_URL];
-    feedParser = [[FeedParser alloc] initWithUrl:url];
-  }
-  return self;
+- (NSURL *)feedURL {
+  return [NSURL URLWithString:FEED_URL];
 }
 
 - (void)update {
@@ -25,7 +21,7 @@
 
   for (FeedEntry *feedEntry in feedEntries) {
     NSString *title = [NSString stringWithFormat:@"Trade %@", feedEntry.published];
-    [delegate messageReceivedFromSource:self id:feedEntry.id title:title content:feedEntry.title priority:0 sticky:NO];
+    [delegate messageReceivedFromSource:self id:feedEntry.id title:title content:feedEntry.title received:(NSDate *)feedEntry.published priority:0 sticky:NO];
   }
 }
 

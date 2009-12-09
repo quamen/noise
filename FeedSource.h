@@ -10,9 +10,14 @@
 
 #define DEFAULT_TIMEOUT 10 // seconds
 
+@class FeedParser;
+
 @interface FeedSource : Source {
-@private
+@protected
+  FeedParser *feedParser;
   NSTimer *timer;
 }
+
+- (NSURL *)feedURL;
 
 @end

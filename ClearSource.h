@@ -13,8 +13,9 @@
 @class FeedParser;
 
 @interface CLEARSource : FeedSource {
-@private
-  FeedParser *feedParser;
+
 }
+
+- (NSURL *)feedURL;
 
 @end

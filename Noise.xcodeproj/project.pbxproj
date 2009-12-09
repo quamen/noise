@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0306011A10C71AB700EDE268 /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306011810C71AB700EDE268 /* NSString+InflectionSupport.m */; };
+		0358C67810D0400E00954E9B /* NSString+InflectionSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306011910C71AB700EDE268 /* NSString+InflectionSupport.h */; };
+		0358C67910D0400F00954E9B /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306011810C71AB700EDE268 /* NSString+InflectionSupport.m */; };
 		039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */; };
 		03C2C40310CC6C3C00DE9BF2 /* CLEARSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4910C5F67F00EDE268 /* CLEARSource.m */; };
 		03C2C41310CC700F00DE9BF2 /* Source.m in Sources */ = {isa = PBXBuildFile; fileRef = 03408BD910C505C100594B6D /* Source.m */; };
@@ -139,6 +140,7 @@
 		03408E8510C515FA00594B6D /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = vendor/frameworks/Growl.framework; sourceTree = "<group>"; };
 		03408E9410C5166500594B6D /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
 		03408E9510C5166500594B6D /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
+		0358C64210D0370E00954E9B /* NoiseDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoiseDefines.h; sourceTree = "<group>"; };
 		0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		0394596010C7AFDF00785C37 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = NoiseDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -221,6 +223,26 @@
 			name = Notifiers;
 			sourceTree = "<group>";
 		};
+		0358C67710D03F8B00954E9B /* NoiseApp */ = {
+			isa = PBXGroup;
+			children = (
+				0358C68010D0405A00954E9B /* Headers */,
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				256AC3D80F4B6AC300CF3369 /* NoiseApp.h */,
+				256AC3D90F4B6AC300CF3369 /* NoiseApp.m */,
+			);
+			name = NoiseApp;
+			sourceTree = "<group>";
+		};
+		0358C68010D0405A00954E9B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				0358C64210D0370E00954E9B /* NoiseDefines.h */,
+				256AC3F00F4B6AF500CF3369 /* Noise_Prefix.pch */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
 		039459F010C7C34700785C37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -276,9 +298,10 @@
 			name = Growl;
 			sourceTree = "<group>";
 		};
-		080E96DDFE201D6D7F000001 /* Classes */ = {
+		080E96DDFE201D6D7F000001 /* Noise.framework */ = {
 			isa = PBXGroup;
 			children = (
+				039459F010C7C34700785C37 /* Models */,
 				0320219010C73662000C9546 /* Util */,
 				0306003B10C6363000EDE268 /* FeedEntry.h */,
 				0306003C10C6363000EDE268 /* FeedEntry.m */,
@@ -288,15 +311,13 @@
 				03408E6710C512D400594B6D /* FeedSource.m */,
 				0306FF4E10C5F78200EDE268 /* Message.h */,
 				0306FF4F10C5F78200EDE268 /* Message.m */,
-				256AC3D80F4B6AC300CF3369 /* NoiseApp.h */,
-				256AC3D90F4B6AC300CF3369 /* NoiseApp.m */,
 				03408BE310C5063500594B6D /* Notifier.h */,
 				03408BE410C5063500594B6D /* Notifier.m */,
 				03408BD810C505C100594B6D /* Source.h */,
 				03408BD910C505C100594B6D /* Source.m */,
 				03408D3210C50B3B00594B6D /* SourceDelegate.h */,
 			);
-			name = Classes;
+			name = Noise.framework;
 			sourceTree = "<group>";
 		};
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
@@ -332,24 +353,14 @@
 		29B97314FDCFA39411CA2CEA /* Noise */ = {
 			isa = PBXGroup;
 			children = (
-				039459F010C7C34700785C37 /* Models */,
+				080E96DDFE201D6D7F000001 /* Noise.framework */,
+				0358C67710D03F8B00954E9B /* NoiseApp */,
 				03C2C52E10CC8F8C00DE9BF2 /* PlugIns */,
-				080E96DDFE201D6D7F000001 /* Classes */,
-				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
 			name = Noise;
-			sourceTree = "<group>";
-		};
-		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
-			isa = PBXGroup;
-			children = (
-				256AC3F00F4B6AF500CF3369 /* Noise_Prefix.pch */,
-				29B97316FDCFA39411CA2CEA /* main.m */,
-			);
-			name = "Other Sources";
 			sourceTree = "<group>";
 		};
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
@@ -388,6 +399,7 @@
 				03C2C41F10CC703600DE9BF2 /* FeedSource.h in Headers */,
 				03C2C42510CC709C00DE9BF2 /* ISO8601DateFormatter.h in Headers */,
 				03C2C64710CCA62900DE9BF2 /* Message.h in Headers */,
+				0358C67810D0400E00954E9B /* NSString+InflectionSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +576,7 @@
 				03C2C41E10CC703300DE9BF2 /* FeedSource.m in Sources */,
 				03C2C42410CC709300DE9BF2 /* ISO8601DateFormatter.m in Sources */,
 				03C2C64810CCA62900DE9BF2 /* Message.m in Sources */,
+				0358C67910D0400F00954E9B /* NSString+InflectionSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +594,6 @@
 			files = (
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* NoiseApp.m in Sources */,
-				0306011A10C71AB700EDE268 /* NSString+InflectionSupport.m in Sources */,
 				039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

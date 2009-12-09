@@ -43,7 +43,8 @@
   return entries;
 }
 
-// NSXMLParserDelegate methods.
+#pragma mark -
+#pragma mark NSXMLParserDelegate methods
 
 - (void)parser:(NSXMLParser *)parser
 didStartElement:(NSString *)elementName

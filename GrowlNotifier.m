@@ -48,7 +48,8 @@
                              clickContext:nil];
 }
 
-#pragma mark GrowlApplicationBridge delegate methods
+#pragma mark -
+#pragma mark GrowlApplicationBridge methods
 
 - (NSString *)applicationNameForGrowl {
   return @"Noise";
