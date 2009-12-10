@@ -38,6 +38,11 @@
 		03C2C89610CDB0B000DE9BF2 /* Noise.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
 		03C2C8D010CDB1FB00DE9BF2 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		03C2C8D110CDB20300DE9BF2 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		03E1BD8210D0F08600D45C35 /* BWToolkitFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E1BD8110D0F08500D45C35 /* BWToolkitFramework.framework */; };
+		03E1BDB610D0F09D00D45C35 /* BWToolkitFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03E1BD8110D0F08500D45C35 /* BWToolkitFramework.framework */; };
+		03E1BDEF10D0F54200D45C35 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E1BDEE10D0F54200D45C35 /* Sparkle.framework */; };
+		03E1BDF310D0F54C00D45C35 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03E1BDEE10D0F54200D45C35 /* Sparkle.framework */; };
+		03E1BE0310D0F72200D45C35 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 03E1BE0210D0F72200D45C35 /* dsa_pub.pem */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* NoiseApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* NoiseApp.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -111,7 +116,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				03E1BDB610D0F09D00D45C35 /* BWToolkitFramework.framework in CopyFiles */,
 				03C2C89610CDB0B000DE9BF2 /* Noise.framework in CopyFiles */,
+				03E1BDF310D0F54C00D45C35 /* Sparkle.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +158,9 @@
 		03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Growl.noiseNotifier; sourceTree = BUILT_PRODUCTS_DIR; };
 		03C2C5E810CCA23400DE9BF2 /* Growl-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Growl-Info.plist"; sourceTree = "<group>"; };
 		03C2C81510CD947A00DE9BF2 /* noise.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = noise.icns; sourceTree = "<group>"; };
+		03E1BD8110D0F08500D45C35 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = vendor/frameworks/BWToolkitFramework.framework; sourceTree = "<group>"; };
+		03E1BDEE10D0F54200D45C35 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = vendor/frameworks/Sparkle.framework; sourceTree = "<group>"; };
+		03E1BE0210D0F72200D45C35 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -198,6 +208,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */,
+				03E1BD8210D0F08600D45C35 /* BWToolkitFramework.framework in Frameworks */,
+				03E1BDEF10D0F54200D45C35 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,8 +335,10 @@
 		1058C7A0FEA54F0111CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				03408E8510C515FA00594B6D /* Growl.framework */,
+				03E1BD8110D0F08500D45C35 /* BWToolkitFramework.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				03408E8510C515FA00594B6D /* Growl.framework */,
+				03E1BDEE10D0F54200D45C35 /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
 			sourceTree = "<group>";
@@ -366,6 +380,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				03E1BE0210D0F72200D45C35 /* dsa_pub.pem */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
@@ -537,6 +552,7 @@
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				03C2C81610CD947A00DE9BF2 /* noise.icns in Resources */,
+				03E1BE0310D0F72200D45C35 /* dsa_pub.pem in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

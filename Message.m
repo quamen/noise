@@ -55,4 +55,8 @@
   [self didChangeValueForKey:@"sticky"];
 }
 
+- (NSImage *)icon {
+	return [NSImage imageNamed:@"NSApplicationIcon"];
+}
+
 @end

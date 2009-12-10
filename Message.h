@@ -19,6 +19,7 @@
 @property (assign) NSString *title;
 @property (assign) NSString *content;
 @property (assign) NSDate *received;
+@property (readonly, assign) NSImage *icon;
 
 @property int  priority;
 @property BOOL sticky;
