@@ -6,7 +6,9 @@
 //  Copyright 2009 CLEAR Interactive. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
 #import "FeedSource.h"
+#import "NoiseDefines.h"
 
 #define FEED_URL @"https://app.cleargrain.com.au/trades.atom"
 

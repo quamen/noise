@@ -1,38 +1,90 @@
 //
-//  NoiseAppDelegate.m
+//  AppDelegate.m
 //  Noise
 //
 //  Created by Joshua Bassett on 1/12/09.
 //  Copyright 2009 CLEAR Interactive. All rights reserved.
 //
 
-#import "NoiseApp.h"
+#import "AppDelegate.h"
 #import "Message.h"
 #import "Notifier.h"
 #import "Source.h"
 
-@interface NoiseApp (Private)
+@interface AppDelegate (Private)
 
+- (void)contextDidSave:(NSNotification *)notification;
+- (void)messageReceived:(Message *)message;
 - (void)loadSources;
 - (void)loadNotifiers;
-- (BOOL)messageExistsFromSource:(Source *)source id:(NSString *)id;
+- (NSString *)applicationSupportDirectory;
 - (NSArray *)loadAllBundlesWithExtension:(NSString *)ext;
 - (NSMutableArray *)allBundlesWithExtension:(NSString *)ext;
-- (void)saveAction;
 
 @end
 
 
-@implementation NoiseApp
+@implementation AppDelegate
 
 @synthesize window;
 
 - (id)init {
   if (self = [super init]) {
+    operationQueue = [[NSOperationQueue alloc] init];
+
     [self loadSources];
     [self loadNotifiers];
+
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(contextDidSave:)
+                                                 name:NSManagedObjectContextDidSaveNotification
+                                               object:managedObjectContext];
   }
   return self;
+}
+
+#pragma mark -
+#pragma mark NSApplicationDelegate methods
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification {
+  for (Source *source in sources) {
+    [source setEnabled:YES];
+  }
+}
+
+- (void)applicationWillTerminate:(NSNotification *)notification {
+  for (Source *source in sources) {
+    [source setEnabled:NO];
+  }
+  
+  [operationQueue cancelAllOperations];
+}
+
+#pragma mark -
+#pragma mark SourceDelegate methods
+
+- (void)updateSource:(Source *)source {
+  NSOperation *updateOperation = [[NSInvocationOperation alloc] initWithTarget:source selector:@selector(update) object:nil];
+  [operationQueue addOperation:updateOperation];
+}
+
+#pragma mark -
+#pragma mark Private methods
+
+- (void)contextDidSave:(NSNotification *)notification {
+  NSArray *objects = [[notification userInfo] objectForKey:NSInsertedObjectsKey];
+  for (id object in objects) {
+    if ([object isMemberOfClass:[Message class]]) {
+      NSLog(@"%@", object);
+      [self messageReceived:object];
+    }
+  }
+}
+
+- (void)messageReceived:(Message *)message {
+  for (Notifier *notifier in notifiers) {
+    [notifier notify:message];
+  }
 }
 
 - (void)loadNotifiers {
@@ -52,66 +104,10 @@
   
   for (Class klass in klasses) {
     // TODO: validate the plug-in.
-    Source *source = [[klass alloc] init];
-    [source setDelegate:self];
+    Source *source = [[klass alloc] initWithDelegate:self];
     [sources addObject:source];
   }
 }
-
-- (BOOL)messageExistsFromSource:(Source *)source id:(NSString *)id {
-  NSFetchRequest *request = [[NSFetchRequest alloc] init];
-  [request setEntity:[NSEntityDescription entityForName:MESSAGE_ENTITY_NAME inManagedObjectContext:[self managedObjectContext]]];
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"source == %@ AND id == %@", [source identifier], id];
-  [request setPredicate:predicate];
-  NSError *error = nil;
-  NSArray *results = [[self managedObjectContext] executeFetchRequest:request error:&error];
-  
-  if (error) {
-    [NSApp presentError:error];
-    return NO;
-  }
-  
-  return [results count] > 0;
-}
-
-#pragma mark -
-#pragma mark NSApplicationDelegate methods
-
-- (void)applicationDidFinishLaunching:(NSNotification *)notification {
-  for (Source *source in sources) {
-    [source setEnabled:YES];
-  }
-}
-
-- (void)applicationWillTerminate:(NSNotification *)notification {
-  for (Source *source in sources) {
-    [source setEnabled:NO];
-  }
-}
-
-#pragma mark -
-#pragma mark SourceDelegate methods
-
-- (void)messageReceivedFromSource:(Source *)source id:(NSString *)id title:(NSString *)title content:(NSString *)content received:(NSDate *)received priority:(int)priority sticky:(BOOL)sticky {
-  if ([self messageExistsFromSource:source id:id]) return;
-  
-  Message *message = [NSEntityDescription insertNewObjectForEntityForName:MESSAGE_ENTITY_NAME inManagedObjectContext:[self managedObjectContext]];
-  [message setSource:[source identifier]];
-  [message setId:id];
-  [message setTitle:title];
-  [message setContent:content];
-  [message setReceived:received];
-  [message setPriority:priority];  
-  [message setSticky:sticky];
-  [self saveAction];
-
-  for (Notifier *notifier in notifiers) {
-    [notifier notify:message];
-  }
-}
-
-
-#pragma mark -
 
 /**
  Returns the support directory for the application, used to store the Core Data
@@ -132,7 +128,6 @@
  */
 - (NSManagedObjectModel *)managedObjectModel {
   if (managedObjectModel) return managedObjectModel;
-	
   managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
   return managedObjectModel;
 }
@@ -148,6 +143,7 @@
   if (persistentStoreCoordinator) return persistentStoreCoordinator;
   
   NSManagedObjectModel *mom = [self managedObjectModel];
+
   if (!mom) {
     NSAssert(NO, @"Managed object model is nil");
     NSLog(@"%@:%s No model to generate a store from", [self class], _cmd);
@@ -158,21 +154,22 @@
   NSString *applicationSupportDirectory = [self applicationSupportDirectory];
   NSError *error = nil;
   
-  if ( ![fileManager fileExistsAtPath:applicationSupportDirectory isDirectory:NULL] ) {
+  if (![fileManager fileExistsAtPath:applicationSupportDirectory isDirectory:NULL]) {
 		if (![fileManager createDirectoryAtPath:applicationSupportDirectory withIntermediateDirectories:NO attributes:nil error:&error]) {
-      NSAssert(NO, ([NSString stringWithFormat:@"Failed to create App Support directory %@ : %@", applicationSupportDirectory,error]));
-      NSLog(@"Error creating application support directory at %@ : %@",applicationSupportDirectory,error);
+      NSAssert(NO, ([NSString stringWithFormat:@"Failed to create App Support directory %@ : %@", applicationSupportDirectory, error]));
+      NSLog(@"Error creating application support directory at %@ : %@", applicationSupportDirectory, error);
       return nil;
 		}
   }
   
   NSURL *url = [NSURL fileURLWithPath: [applicationSupportDirectory stringByAppendingPathComponent: @"storedata"]];
   persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: mom];
+
   if (![persistentStoreCoordinator addPersistentStoreWithType:NSXMLStoreType 
                                                 configuration:nil 
                                                           URL:url 
                                                       options:nil 
-                                                        error:&error]){
+                                                        error:&error]) {
     [[NSApplication sharedApplication] presentError:error];
     [persistentStoreCoordinator release], persistentStoreCoordinator = nil;
     return nil;
@@ -186,10 +183,10 @@
  bound to the persistent store coordinator for the application.) 
  */
 - (NSManagedObjectContext *)managedObjectContext {
-  
   if (managedObjectContext) return managedObjectContext;
   
   NSPersistentStoreCoordinator *coordinator = [self persistentStoreCoordinator];
+
   if (!coordinator) {
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     [dict setValue:@"Failed to initialize the store" forKey:NSLocalizedDescriptionKey];
@@ -198,8 +195,9 @@
     [[NSApplication sharedApplication] presentError:error];
     return nil;
   }
+
   managedObjectContext = [[NSManagedObjectContext alloc] init];
-  [managedObjectContext setPersistentStoreCoordinator: coordinator];
+  [managedObjectContext setPersistentStoreCoordinator:coordinator];
   
   return managedObjectContext;
 }
@@ -210,74 +208,6 @@
  */
 - (NSUndoManager *)windowWillReturnUndoManager:(NSWindow *)window {
   return [[self managedObjectContext] undoManager];
-}
-
-
-/**
- Performs the save action for the application, which is to send the save:
- message to the application's managed object context.  Any encountered errors
- are presented to the user.
- */
-- (void)saveAction {
-  NSError *error = nil;
-  
-  if (![[self managedObjectContext] commitEditing]) {
-    NSLog(@"%@:%s unable to commit editing before saving", [self class], _cmd);
-  }
-  
-  if (![[self managedObjectContext] save:&error]) {
-    [[NSApplication sharedApplication] presentError:error];
-  }
-}
-
-
-/**
- Implementation of the applicationShouldTerminate: method, used here to
- handle the saving of changes in the application managed object context
- before the application terminates.
- */
-- (NSApplicationTerminateReply)applicationShouldTerminate:(NSApplication *)sender {
-  if (!managedObjectContext) return NSTerminateNow;
-  
-  if (![managedObjectContext commitEditing]) {
-    NSLog(@"%@:%s unable to commit editing to terminate", [self class], _cmd);
-    return NSTerminateCancel;
-  }
-  
-  if (![managedObjectContext hasChanges]) return NSTerminateNow;
-  
-  NSError *error = nil;
-  if (![managedObjectContext save:&error]) {
-    // This error handling simply presents error information in a panel with an 
-    // "Ok" button, which does not include any attempt at error recovery (meaning, 
-    // attempting to fix the error.)  As a result, this implementation will 
-    // present the information to the user and then follow up with a panel asking 
-    // if the user wishes to "Quit Anyway", without saving the changes.
-    
-    // Typically, this process should be altered to include application-specific 
-    // recovery steps.  
-    
-    BOOL result = [sender presentError:error];
-    if (result) return NSTerminateCancel;
-    
-    NSString *question = NSLocalizedString(@"Could not save changes while quitting.  Quit anyway?", @"Quit without saves error question message");
-    NSString *info = NSLocalizedString(@"Quitting now will lose any changes you have made since the last successful save", @"Quit without saves error question info");
-    NSString *quitButton = NSLocalizedString(@"Quit anyway", @"Quit anyway button title");
-    NSString *cancelButton = NSLocalizedString(@"Cancel", @"Cancel button title");
-    NSAlert *alert = [[NSAlert alloc] init];
-    [alert setMessageText:question];
-    [alert setInformativeText:info];
-    [alert addButtonWithTitle:quitButton];
-    [alert addButtonWithTitle:cancelButton];
-    
-    NSInteger answer = [alert runModal];
-    [alert release];
-    alert = nil;
-    
-    if (answer == NSAlertAlternateReturn) return NSTerminateCancel;
-  }
-  
-  return NSTerminateNow;
 }
 
 - (NSArray *)loadAllBundlesWithExtension:(NSString *)ext {

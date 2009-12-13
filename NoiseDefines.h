@@ -9,3 +9,9 @@
 
 #define MESSAGE_ENTITY_NAME @"Message"
 #define APP_SUPPORT_PLUGIN_DIR @"Application Support/Noise/PlugIns"
+
+enum {
+  NOISE_MESSAGE_PRIORITY_LOW = -1,
+  NOISE_MESSAGE_PRIORITY_NORMAL = 0,
+  NOISE_MESSAGE_PRIORITY_HIGH = 1
+};

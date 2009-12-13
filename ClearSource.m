@@ -17,11 +17,19 @@
 }
 
 - (void)update {
+  [super update];
+
   NSArray *feedEntries = [feedParser parse];
 
   for (FeedEntry *feedEntry in feedEntries) {
     NSString *title = [NSString stringWithFormat:@"Trade %@", feedEntry.published];
-    [delegate messageReceivedFromSource:self id:feedEntry.id title:title content:feedEntry.title received:(NSDate *)feedEntry.published priority:0 sticky:NO];
+    
+    [self messageReceivedWithID:feedEntry.id
+                          title:title
+                        content:feedEntry.title
+                       received:(NSDate *)feedEntry.published
+                       priority:NOISE_MESSAGE_PRIORITY_NORMAL
+                         sticky:NO];
   }
 }
 

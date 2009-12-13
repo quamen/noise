@@ -11,16 +11,16 @@
 
 @interface FeedSource (Private)
 
-- (void)update;
 - (void)startStopTimer;
+- (void)timerFired:(NSTimer*)timer;
 
 @end
 
 
 @implementation FeedSource
 
-- (id)init {
-  if (self = [super init]) {
+- (id)initWithDelegate:(id <SourceDelegate>)aDelegate {
+  if (self = [super initWithDelegate:aDelegate]) {
     feedParser = [[FeedParser alloc] initWithUrl:[self feedURL]];
   }
   return self;
@@ -29,28 +29,32 @@
 - (void)setEnabled:(bool)value {
   [super setEnabled:value];
   [self startStopTimer];
-  [self update];
 }
+
+- (NSURL *)feedURL {
+  // Abstract method.
+  return nil;
+}
+
+#pragma mark -
+#pragma mark Private methods
 
 - (void)startStopTimer {
   if (timer != nil) {
     [timer invalidate];
     timer = nil;
   }
-
+  
   if (enabled) {
-    timer = [NSTimer scheduledTimerWithTimeInterval:DEFAULT_TIMEOUT target:self selector:@selector(update) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:DEFAULT_TIMEOUT target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+    
+    // Fire the timer straight away.
+    [timer fire];
   }
 }
 
-- (void)update {
-  // Abstract method.
-}
-
-
-- (NSURL *)feedURL {
-  // Abstract method.
-  return nil;
+- (void)timerFired:(NSTimer*)timer {
+  [delegate updateSource:self];
 }
 
 @end

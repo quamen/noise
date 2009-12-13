@@ -6,6 +6,7 @@
 //  Copyright 2009 CLEAR Interactive. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
 #import <Growl/Growl.h>
 #import "Notifier.h"
 

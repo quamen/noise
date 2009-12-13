@@ -12,11 +12,26 @@
 @protected
   id <SourceDelegate> delegate;
   bool enabled;
+
+  NSManagedObjectContext *managedObjectContext;
 }
 
 @property (readwrite, assign) id <SourceDelegate> delegate;
 @property (readwrite, assign) bool enabled;
 
+@property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
+
+- (id)initWithDelegate:(id <SourceDelegate>)aDelegate;
+
+- (void)update;
+
 - (NSString *)identifier;
+
+- (void)messageReceivedWithID:(NSString *)id
+                        title:(NSString *)title
+                      content:(NSString *)content
+                     received:(NSDate *)received
+                     priority:(int)priority
+                       sticky:(BOOL)sticky;
 
 @end

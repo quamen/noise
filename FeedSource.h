@@ -8,7 +8,7 @@
 
 #import "Source.h"
 
-#define DEFAULT_TIMEOUT 10 // seconds
+#define DEFAULT_TIMEOUT 60 // seconds
 
 @class FeedParser;
 

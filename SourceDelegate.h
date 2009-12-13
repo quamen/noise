@@ -10,6 +10,9 @@
 
 @protocol SourceDelegate
 
-- (void)messageReceivedFromSource:(Source *)source id:(NSString *)id title:(NSString *)title content:(NSString *)content received:(NSDate *)received priority:(int)priority sticky:(BOOL)sticky;
+- (NSPersistentStoreCoordinator *)persistentStoreCoordinator;
+- (NSManagedObjectContext *)managedObjectContext;
+
+- (void)updateSource:(Source *)source;
 
 @end
