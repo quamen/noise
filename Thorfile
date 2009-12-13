@@ -1,11 +1,10 @@
 require 'thor'
-require 'plist'
 require 'curb'
 require 'rexml/document'
 require 'yaml'
 
 APP_NAME = "noise"
-INFO_PLIST_PATH = "Info.plist"
+NOISE_VERSION_PATH = "NoiseVersion.h"
 
 class Noise < Thor
   CC = "xcodebuild"
@@ -28,12 +27,12 @@ class Noise < Thor
     git "checkout master"
     git "pull origin master"
 
-    info = Plist::parse_xml(INFO_PLIST_PATH)
-    info['CFBundleVersion'] = version
-    info.save_plist(INFO_PLIST_PATH)
+    open(NOISE_VERSION_PATH, 'w') { |file| file.puts <<EOF }
+#define NOISE_VERSION #{version}
+EOF
 
     git "add #{INFO_PLIST_PATH}"
-    git "commit -m 'Prepare release #{version}.'"
+    git "commit -m 'Tagged release #{version}.'"
     git "tag #{version}"
     git "push --tags origin master"
   end
