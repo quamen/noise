@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		031A6A5210D4DA2A0076AEAF /* NoiseDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 031A6A5110D4DA2A0076AEAF /* NoiseDefaults.plist */; };
 		0344C0EA10D483170075EAC9 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
 		0358C67810D0400E00954E9B /* NSString+InflectionSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306011910C71AB700EDE268 /* NSString+InflectionSupport.h */; };
 		0358C67910D0400F00954E9B /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306011810C71AB700EDE268 /* NSString+InflectionSupport.m */; };
@@ -136,6 +137,7 @@
 		0306FF4C10C5F6BB00EDE268 /* CruiseControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CruiseControl.m; sourceTree = "<group>"; };
 		0306FF4E10C5F78200EDE268 /* Message.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Message.h; sourceTree = "<group>"; };
 		0306FF4F10C5F78200EDE268 /* Message.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Message.m; sourceTree = "<group>"; };
+		031A6A5110D4DA2A0076AEAF /* NoiseDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = NoiseDefaults.plist; sourceTree = "<group>"; };
 		03408BD810C505C100594B6D /* Source.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Source.h; sourceTree = "<group>"; };
 		03408BD910C505C100594B6D /* Source.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Source.m; sourceTree = "<group>"; };
 		03408BE310C5063500594B6D /* Notifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Notifier.h; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
 				03C2C81510CD947A00DE9BF2 /* noise.icns */,
 				8D1107310486CEB800E47090 /* Noise-Info.plist */,
+				031A6A5110D4DA2A0076AEAF /* NoiseDefaults.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -553,6 +556,7 @@
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
 				03C2C81610CD947A00DE9BF2 /* noise.icns in Resources */,
 				03E1BE0310D0F72200D45C35 /* dsa_pub.pem in Resources */,
+				031A6A5210D4DA2A0076AEAF /* NoiseDefaults.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -899,6 +903,8 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_PREFIX_HEADER = "Info.plist-Prefix.pch";
+				INFOPLIST_PREPROCESS = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
@@ -913,6 +919,8 @@
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_PREFIX_HEADER = "Info.plist-Prefix.pch";
+				INFOPLIST_PREPROCESS = YES;
 				PREBINDING = NO;
 				SDKROOT = macosx10.6;
 			};
