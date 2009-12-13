@@ -32,5 +32,9 @@
 	<string>dsa_pub.pem</string>
 	<key>SUFeedURLKey</key>
 	<string>http://noiseapp.com/appcast.xml</string>
+	<key>SUScheduledCheckInterval</key>
+	<string>86400</string>
+	<key>SUShowReleaseNotes</key>
+	<string>YES</string>
 </dict>
 </plist>
