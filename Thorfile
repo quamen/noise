@@ -3,12 +3,11 @@ require 'curb'
 require 'rexml/document'
 require 'yaml'
 
-APP_NAME = "noise"
-NOISE_VERSION_PATH = "NoiseVersion.h"
-
 class Noise < Thor
+  APP_NAME = "noise"
   CC = "xcodebuild"
   CFLAGS = "-configuration Release"
+  NOISE_VERSION_HEADER_PATH = "NoiseVersion.h"
   PRIVATE_KEY = "dsa_priv.pem"
 
   desc "clean", "clean the project"
@@ -27,7 +26,7 @@ class Noise < Thor
     git "checkout master"
     git "pull origin master"
 
-    open(NOISE_VERSION_PATH, 'w') { |file| file.puts <<EOF }
+    open(NOISE_VERSION_HEADER_PATH, 'w') { |file| file.puts <<EOF }
 #define NOISE_VERSION #{version}
 EOF
 
@@ -76,10 +75,10 @@ EOF
       file_name = "#{APP_NAME}-#{version}.zip"
       path = File.join('/', 'tmp', file_name)
 
-      build
-      #system "tar -czf #{path} -C build/Release #{APP_NAME}.app"
-      system "ditto -ck --keepParent build/Release/#{APP_NAME}.app #{path}"
       tag(version)
+      build
+      #system "tar -czf #{path} -C build/Release #{APP_NAME}.app" # tar.gz
+      system "ditto -ck --keepParent build/Release/#{APP_NAME}.app #{path}" # zip
 
       path
     end
