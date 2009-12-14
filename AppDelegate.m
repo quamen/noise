@@ -49,7 +49,7 @@
 
 - (void)awakeFromNib {
   // Sort messages by date received (descending).
-  NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"received" ascending:NO];
+  NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"received" ascending:NO];
   [messagesArrayController setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 }
 
