@@ -86,18 +86,7 @@ EOF
         update_index_page(version)
 
         git "commit -m 'Added new post for version #{version}.'"
-
-        system "jekyll"
-
-        Dir.chdir "_site" do
-          git "add ."
-          git "commit -m 'Published site to Heroku.'"
-          git "push"
-        end
-
-        git "add ."
-        git "commit -m 'Published site to Heroku.'"
-        git "push"
+        system "thor site:publish"
       end
     end
 
