@@ -81,31 +81,31 @@ EOF
       length = File.size(path)
       signature = sign(path)
 
-      Dir.chdir "site" do
+      Dir.chdir "../noiseapp" do
         create_post(version, length, signature)
         update_index_page(version)
 
         git "commit -m 'Added new post for version #{version}.'"
 
         system "jekyll"
-      end
 
-      Dir.chdir "site/_site" do
+        Dir.chdir "_site" do
+          git "add ."
+          git "commit -m 'Published site to Heroku.'"
+          git "push"
+        end
+
         git "add ."
         git "commit -m 'Published site to Heroku.'"
         git "push"
       end
-
-      git "add ."
-      git "commit -m 'Published site to Heroku.'"
-      git "push"
     end
 
     def create_post(version, length, signature)
       puts "Creating #{APP_NAME} jekyll post for #{version}..."
 
       file_name = Time.new.strftime("%Y-%m-%d") + "-release-#{version}.markdown"
-      path = File.join(File.dirname(__FILE__), 'site', '_posts', file_name)
+      path = File.join('_posts', file_name)
 
       open(path, 'w') { |file| file.puts <<EOF }
 ---
@@ -123,7 +123,7 @@ EOF
     end
 
     def update_index_page(version)
-      path = File.join(File.dirname(__FILE__), 'site', 'index.html')
+      path = 'index.html'
       data = nil
       content = File.read(path)
 
