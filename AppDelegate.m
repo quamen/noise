@@ -13,6 +13,7 @@
 
 @interface AppDelegate (Private)
 
+- (void)registerDefaults;
 - (void)contextDidSave:(NSNotification *)notification;
 - (void)messageReceived:(Message *)message;
 - (void)loadSources;
@@ -26,7 +27,7 @@
 
 @implementation AppDelegate
 
-@synthesize window;
+@synthesize window, messagesArrayController;
 
 - (id)init {
   if (self = [super init]) {
@@ -46,7 +47,15 @@
 #pragma mark -
 #pragma mark NSApplicationDelegate methods
 
+- (void)awakeFromNib {
+  // Sort messages by date received (descending).
+  NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"received" ascending:NO];
+  [messagesArrayController setSortDescriptors:[NSArray arrayWithObject:sortDescriptor]];
+}
+
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
+  [self registerDefaults];
+
   for (Source *source in sources) {
     [source setEnabled:YES];
   }
@@ -70,6 +79,14 @@
 
 #pragma mark -
 #pragma mark Private methods
+
+- (void)registerDefaults {
+  NSString *defaultsPath = [[NSBundle mainBundle] pathForResource:@"NoiseDefaults" ofType:@"plist"];
+  NSDictionary *defaultsDictionary = [NSDictionary dictionaryWithContentsOfFile:defaultsPath];
+  
+  [[NSUserDefaults standardUserDefaults] registerDefaults:defaultsDictionary];
+  [[NSUserDefaults standardUserDefaults] synchronize];
+}
 
 - (void)contextDidSave:(NSNotification *)notification {
   NSArray *objects = [[notification userInfo] objectForKey:NSInsertedObjectsKey];

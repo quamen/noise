@@ -19,10 +19,13 @@
   NSManagedObjectModel         *managedObjectModel;
   NSManagedObjectContext       *managedObjectContext;
 
+  NSArrayController *messagesArrayController;
+  
 	NSOperationQueue *operationQueue;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign, readwrite) IBOutlet NSArrayController *messagesArrayController;
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel         *managedObjectModel;
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
