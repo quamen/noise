@@ -40,10 +40,7 @@ EOF
   def release(version)
     path = create_release(version)
     upload_file(path, File.basename(path), "#{APP_NAME} release #{version}.")
-
-    length = File.size(path)
-    signature = sign(path)
-    update_gh_pages(version, length, signature)
+    update_site(version, path)
   end
 
   private
@@ -59,16 +56,6 @@ EOF
       `openssl dgst -sha1 -binary < "#{path}" | openssl dgst -dss1 -sign "#{PRIVATE_KEY}" | openssl enc -base64`
     end
 
-    def update_gh_pages(version, length, signature)
-      git "checkout gh-pages"
-      git "pull origin gh-pages"
-      create_post(version, length, signature)
-      update_index_page(version)
-      git "commit -m 'Added new post for version #{version}.'"
-      git "push origin gh-pages"
-      git "checkout master"
-    end
-
     def create_release(version)
       puts "Creating #{APP_NAME} release #{version}..."
 
@@ -81,6 +68,21 @@ EOF
       system "ditto -ck --keepParent build/Release/#{APP_NAME}.app #{path}" # zip
 
       path
+    end
+
+    def update_site(version, path)
+      length = File.size(path)
+      signature = sign(path)
+
+      git "checkout gh-pages"
+      git "pull origin gh-pages"
+
+      create_post(version, length, signature)
+      update_index_page(version)
+
+      git "commit -m 'Added new post for version #{version}.'"
+      git "push origin gh-pages"
+      git "checkout master"
     end
 
     def create_post(version, length, signature)
@@ -100,6 +102,30 @@ release-signature: #{signature}
 
 <p>Sample Appcast</p>
 EOF
+
+      git "add #{path}"
+    end
+
+    def update_index_page(version)
+      path = 'index.html'
+      data = nil
+      content = File.read(path)
+
+      if content =~ /^(---\s*\n.*?\n?)(---.*?\n)/m
+        content = content[($1.size + $2.size)..-1]
+        data = YAML.load($1)
+      else
+        fail "failed to update version on #{path} page"
+      end
+
+      # Update the version.
+      data['release-version'] = version
+
+      open(path, 'w') do |fout|
+        fout.puts data.to_yaml
+        fout.puts '---'
+        fout.puts content
+      end
 
       git "add #{path}"
     end
@@ -156,29 +182,5 @@ EOF
       end
 
       fail "failed to upload to Amazon S3" unless curl.response_code == 201
-    end
-
-    def update_index_page(version)
-      path = 'index.html'
-      data = nil
-      content = File.read(path)
-
-      if content =~ /^(---\s*\n.*?\n?)(---.*?\n)/m
-        content = content[($1.size + $2.size)..-1]
-        data = YAML.load($1)
-      else
-        fail "failed to update version on #{path} page"
-      end
-
-      # Update the version.
-      data['release-version'] = version
-
-      open(path, 'w') do |fout|
-        fout.puts data.to_yaml
-        fout.puts '---'
-        fout.puts content
-      end
-
-      git "add #{path}"
     end
 end
