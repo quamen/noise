@@ -102,7 +102,7 @@ didStartElement:(NSString *)elementName
 }
 
 - (void)parser:(NSXMLParser *)parser parseErrorOccurred:(NSError *)parseError {
-
+  NSLog(@"An error occured while parsing feed %@: %@", url, parseError);
 }
 
 @end
