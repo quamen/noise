@@ -1,3 +1,0 @@
-[submodule "site/_site"]
-	path = site/_site
-	url = git@heroku.com:noiseapp.git
