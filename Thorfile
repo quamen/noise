@@ -81,15 +81,26 @@ EOF
       update_index_page(version)
 
       git "commit -m 'Added new post for version #{version}.'"
-      git "push origin gh-pages"
-      git "checkout master"
+      git "push origin master"
+
+      system "jekyll"
+
+      Dir.chdir "_site" do
+        git "add ."
+        git "commit -m 'Published site to Heroku.'"
+        git "push origin master"
+      end
+
+      git "add ."
+      git "commit -m 'Published site to Heroku.'"
+      git "push origin master"
     end
 
     def create_post(version, length, signature)
       puts "Creating #{APP_NAME} jekyll post for #{version}..."
 
       file_name = Time.new.strftime("%Y-%m-%d") + "-release-#{version}.markdown"
-      path = File.join(File.dirname(__FILE__), '_posts', file_name)
+      path = File.join(File.dirname(__FILE__), 'site', '_posts', file_name)
 
       open(path, 'w') { |file| file.puts <<EOF }
 ---
@@ -107,7 +118,7 @@ EOF
     end
 
     def update_index_page(version)
-      path = 'index.html'
+      path = File.join(File.dirname(__FILE__), 'site', 'index.html')
       data = nil
       content = File.read(path)
 

@@ -1,0 +1,10 @@
+---
+layout: post
+title: Release 0.1.2
+release-version: 0.1.2
+release-length: 3571765
+release-signature: MCwCFB9mngAe5BYbTEz2mMApSxd3XcMrAhQ/cbKC82/lKMI/xq2Yo8xxkj8zkQ==
+
+---
+
+<p>Sample Appcast</p>
