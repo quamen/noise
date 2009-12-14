@@ -30,7 +30,7 @@ class Noise < Thor
 #define NOISE_VERSION #{version}
 EOF
 
-    git "add #{INFO_PLIST_PATH}"
+    git "add #{NOISE_VERSION_HEADER_PATH}"
     git "commit -m 'Tagged release #{version}.'"
     git "tag #{version}"
     git "push --tags origin master"
@@ -40,6 +40,13 @@ EOF
   def release(version)
     path = create_release(version)
     upload_file(path, File.basename(path), "#{APP_NAME} release #{version}.")
+    update_site(version, path)
+  end
+
+  desc "deploy VERSION", "cut a new release and upload it"
+  def deploy(version)
+    file_name = "#{APP_NAME}-#{version}.zip"
+    path = File.join('/', 'tmp', file_name)
     update_site(version, path)
   end
 
@@ -74,18 +81,16 @@ EOF
       length = File.size(path)
       signature = sign(path)
 
-      git "checkout gh-pages"
-      git "pull origin gh-pages"
+      Dir.chdir "site" do
+        create_post(version, length, signature)
+        update_index_page(version)
 
-      create_post(version, length, signature)
-      update_index_page(version)
+        git "commit -m 'Added new post for version #{version}.'"
 
-      git "commit -m 'Added new post for version #{version}.'"
-      git "push origin master"
+        system "jekyll"
+      end
 
-      system "jekyll"
-
-      Dir.chdir "_site" do
+      Dir.chdir "site/_site" do
         git "add ."
         git "commit -m 'Published site to Heroku.'"
         git "push origin master"
