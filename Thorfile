@@ -33,7 +33,7 @@ EOF
     git "add #{NOISE_VERSION_HEADER_PATH}"
     git "commit -m 'Tagged release #{version}.'"
     git "tag #{version}"
-    git "push --tags origin master"
+    git "push --tags"
   end
 
   desc "release VERSION", "cut a new release and upload it"
@@ -93,12 +93,12 @@ EOF
       Dir.chdir "site/_site" do
         git "add ."
         git "commit -m 'Published site to Heroku.'"
-        git "push origin master"
+        git "push"
       end
 
       git "add ."
       git "commit -m 'Published site to Heroku.'"
-      git "push origin master"
+      git "push"
     end
 
     def create_post(version, length, signature)
