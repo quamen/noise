@@ -32,6 +32,8 @@ EOF
 
     git "add #{NOISE_VERSION_HEADER_PATH}"
     git "commit -m 'Tagged release #{version}.'"
+    git "push"
+
     git "tag #{version}"
     git "push --tags"
   end
