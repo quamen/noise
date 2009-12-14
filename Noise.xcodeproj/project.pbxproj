@@ -11,6 +11,8 @@
 		0344C0EA10D483170075EAC9 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
 		0358C67810D0400E00954E9B /* NSString+InflectionSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306011910C71AB700EDE268 /* NSString+InflectionSupport.h */; };
 		0358C67910D0400F00954E9B /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306011810C71AB700EDE268 /* NSString+InflectionSupport.m */; };
+		0380660A10D6FC8E0052B0CF /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0380660910D6FC8E0052B0CF /* PFMoveApplication.m */; };
+		0380661E10D6FD400052B0CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0380661D10D6FD400052B0CF /* Security.framework */; };
 		039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */; };
 		03A082AC10D5C91B00910867 /* Noise.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
 		03C2C40310CC6C3C00DE9BF2 /* CLEARSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306FF4910C5F67F00EDE268 /* CLEARSource.m */; };
@@ -151,6 +153,9 @@
 		03408E9410C5166500594B6D /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
 		03408E9510C5166500594B6D /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
 		0358C64210D0370E00954E9B /* NoiseDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoiseDefines.h; sourceTree = "<group>"; };
+		0380660810D6FC8E0052B0CF /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = /Users/josh/src/noise/PFMoveApplication.h; sourceTree = "<absolute>"; };
+		0380660910D6FC8E0052B0CF /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = /Users/josh/src/noise/PFMoveApplication.m; sourceTree = "<absolute>"; };
+		0380661D10D6FD400052B0CF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
 		0394595F10C7AFDF00785C37 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		0394596010C7AFDF00785C37 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ISO8601DateFormatter.h; sourceTree = "<group>"; };
 		039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; path = NoiseDataModel.xcdatamodel; sourceTree = "<group>"; };
@@ -214,6 +219,7 @@
 				03E1BD8210D0F08600D45C35 /* BWToolkitFramework.framework in Frameworks */,
 				03E1BDEF10D0F54200D45C35 /* Sparkle.framework in Frameworks */,
 				0344C0EA10D483170075EAC9 /* Noise.framework in Frameworks */,
+				0380661E10D6FD400052B0CF /* Security.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,6 +252,8 @@
 				256AC3D80F4B6AC300CF3369 /* AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AppDelegate.m */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				0380660810D6FC8E0052B0CF /* PFMoveApplication.h */,
+				0380660910D6FC8E0052B0CF /* PFMoveApplication.m */,
 			);
 			name = Noise.app;
 			sourceTree = "<group>";
@@ -341,7 +349,9 @@
 			children = (
 				03E1BD8110D0F08500D45C35 /* BWToolkitFramework.framework */,
 				1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */,
+				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				03408E8510C515FA00594B6D /* Growl.framework */,
+				0380661D10D6FD400052B0CF /* Security.framework */,
 				03E1BDEE10D0F54200D45C35 /* Sparkle.framework */,
 			);
 			name = "Linked Frameworks";
@@ -351,7 +361,6 @@
 			isa = PBXGroup;
 			children = (
 				29B97324FDCFA39411CA2CEA /* AppKit.framework */,
-				13E42FB307B3F0F600E4EEF1 /* CoreData.framework */,
 				29B97325FDCFA39411CA2CEA /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -620,6 +629,7 @@
 				8D11072D0486CEB800E47090 /* main.m in Sources */,
 				256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */,
 				039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */,
+				0380660A10D6FC8E0052B0CF /* PFMoveApplication.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

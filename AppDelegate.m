@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Message.h"
 #import "Notifier.h"
+#import "PFMoveApplication.h"
 #import "Source.h"
 
 @interface AppDelegate (Private)
@@ -55,6 +56,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
   [self registerDefaults];
+
+  PFMoveToApplicationsFolderIfNecessary();
 
   for (Source *source in sources) {
     [source setEnabled:YES];
