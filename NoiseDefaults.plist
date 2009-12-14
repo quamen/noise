@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>SUFeedURLKey</key>
+	<key>SUFeedURL</key>
 	<string>http://noiseapp.com/appcast.xml</string>
 	<key>SUScheduledCheckInterval</key>
 	<string>86400</string>
