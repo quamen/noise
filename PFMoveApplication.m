@@ -244,7 +244,7 @@ static BOOL IsInApplicationsFolder(NSString *path)
 	NSString *appDirPath = nil;
 
 	while ((appDirPath = [e nextObject])) {
-		if ([path hasPrefix:appDirPath]) return YES;
+		if ([[path lowercaseString] hasPrefix:[appDirPath lowercaseString]]) return YES;
 	}
 
 	return NO;
