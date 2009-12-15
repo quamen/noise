@@ -10,10 +10,17 @@
 #import <Growl/Growl.h>
 #import "Notifier.h"
 
+#define GROWL_FRAMEWORK_FILE_NAME @"Growl.framework"
 #define NOISE_NOTIFICATION @"Noise Notification"
 
-@interface GrowlNotifier : Notifier <GrowlApplicationBridgeDelegate> {
+// Growl rate limiting.
+#define GROWLS_PER_PERIOD 5
+#define PERIOD 5 // seconds
 
+@interface GrowlNotifier : Notifier <GrowlApplicationBridgeDelegate> {
+@private
+  double growlAllowance;
+  NSDate *lastGrowl;
 }
 
 @end
