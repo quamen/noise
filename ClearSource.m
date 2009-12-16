@@ -12,6 +12,10 @@
 
 @implementation CLEARSource
 
+- (NSString *)name {
+  return @"CLEAR";
+}
+
 - (NSURL *)feedURL {
   return [NSURL URLWithString:FEED_URL];
 }

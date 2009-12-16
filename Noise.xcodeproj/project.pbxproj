@@ -11,6 +11,7 @@
 		0344C0EA10D483170075EAC9 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
 		0358C67810D0400E00954E9B /* NSString+InflectionSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306011910C71AB700EDE268 /* NSString+InflectionSupport.h */; };
 		0358C67910D0400F00954E9B /* NSString+InflectionSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306011810C71AB700EDE268 /* NSString+InflectionSupport.m */; };
+		037B630E10D79D5B005628CB /* toolbar-preferences-autoupdate.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 037B630D10D79D5B005628CB /* toolbar-preferences-autoupdate.tiff */; };
 		0380660A10D6FC8E0052B0CF /* PFMoveApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 0380660910D6FC8E0052B0CF /* PFMoveApplication.m */; };
 		0380661E10D6FD400052B0CF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0380661D10D6FD400052B0CF /* Security.framework */; };
 		039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 039459F110C7C37D00785C37 /* NoiseDataModel.xcdatamodel */; };
@@ -153,6 +154,7 @@
 		03408E9410C5166500594B6D /* GrowlNotifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrowlNotifier.h; sourceTree = "<group>"; };
 		03408E9510C5166500594B6D /* GrowlNotifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrowlNotifier.m; sourceTree = "<group>"; };
 		0358C64210D0370E00954E9B /* NoiseDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoiseDefines.h; sourceTree = "<group>"; };
+		037B630D10D79D5B005628CB /* toolbar-preferences-autoupdate.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "toolbar-preferences-autoupdate.tiff"; path = "/Users/josh/src/noise/toolbar-preferences-autoupdate.tiff"; sourceTree = "<absolute>"; };
 		0380660810D6FC8E0052B0CF /* PFMoveApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PFMoveApplication.h; path = /Users/josh/src/noise/PFMoveApplication.h; sourceTree = "<absolute>"; };
 		0380660910D6FC8E0052B0CF /* PFMoveApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PFMoveApplication.m; path = /Users/josh/src/noise/PFMoveApplication.m; sourceTree = "<absolute>"; };
 		0380661D10D6FD400052B0CF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = /System/Library/Frameworks/Security.framework; sourceTree = "<absolute>"; };
@@ -265,6 +267,15 @@
 				256AC3F00F4B6AF500CF3369 /* Noise_Prefix.pch */,
 			);
 			name = Headers;
+			sourceTree = "<group>";
+		};
+		037B630F10D79D60005628CB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				03C2C81510CD947A00DE9BF2 /* noise.icns */,
+				037B630D10D79D5B005628CB /* toolbar-preferences-autoupdate.tiff */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 		039459F010C7C34700785C37 /* Models */ = {
@@ -393,11 +404,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				037B630F10D79D60005628CB /* Images */,
 				03E1BE0210D0F72200D45C35 /* dsa_pub.pem */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
 				03C2C40A10CC6F5700DE9BF2 /* Noise.framework-Info.plist */,
-				03C2C81510CD947A00DE9BF2 /* noise.icns */,
 				8D1107310486CEB800E47090 /* Noise-Info.plist */,
 				031A6A5110D4DA2A0076AEAF /* NoiseDefaults.plist */,
 			);
@@ -568,6 +579,7 @@
 				03C2C81610CD947A00DE9BF2 /* noise.icns in Resources */,
 				03E1BE0310D0F72200D45C35 /* dsa_pub.pem in Resources */,
 				031A6A5210D4DA2A0076AEAF /* NoiseDefaults.plist in Resources */,
+				037B630E10D79D5B005628CB /* toolbar-preferences-autoupdate.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -43,10 +43,18 @@
   return managedObjectContext;
 }
 
-- (NSString *)identifier {
+- (NSString *)name {
+  return [[self class] description];
+}
+
+- (NSString *)fullName {
   Class sourceClass = [self class];
   NSBundle *sourceBundle = [NSBundle bundleForClass:sourceClass];
   return [sourceBundle bundleIdentifier];
+}
+
+- (NSImage *)icon {
+	return [NSImage imageNamed:@"NSApplicationIcon"];
 }
 
 - (void)update {
@@ -58,7 +66,7 @@
   
   Message *message = [NSEntityDescription insertNewObjectForEntityForName:MESSAGE_ENTITY_NAME inManagedObjectContext:[self managedObjectContext]];
   
-  [message setSource:[self identifier]];
+  [message setSource:[self fullName]];
   [message setId:id];
   [message setTitle:title];
   [message setContent:content];
@@ -81,7 +89,7 @@
 - (BOOL)messageExistsWithID:(NSString *)id {
   NSFetchRequest *request = [[NSFetchRequest alloc] init];
   [request setEntity:[NSEntityDescription entityForName:MESSAGE_ENTITY_NAME inManagedObjectContext:[self managedObjectContext]]];
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"source == %@ AND id == %@", [self identifier], id];
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"source == %@ AND id == %@", [self fullName], id];
   [request setPredicate:predicate];
   NSError *error = nil;
   NSArray *results = [[self managedObjectContext] executeFetchRequest:request error:&error];

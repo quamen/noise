@@ -18,14 +18,15 @@
 
 @property (readwrite, assign) id <SourceDelegate> delegate;
 @property (readwrite, assign) bool enabled;
+@property (readonly) NSString *name;
+@property (readonly) NSString *fullName;
+@property (readonly) NSImage *icon;
 
 @property (nonatomic, retain, readonly) NSManagedObjectContext *managedObjectContext;
 
 - (id)initWithDelegate:(id <SourceDelegate>)aDelegate;
 
 - (void)update;
-
-- (NSString *)identifier;
 
 - (void)messageReceivedWithID:(NSString *)id
                         title:(NSString *)title
