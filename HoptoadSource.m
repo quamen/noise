@@ -1,19 +1,19 @@
 //
-//  CLEARSource.m
+//  HoptoadSource.m
 //  Noise
 //
 //  Created by Joshua Bassett on 2/12/09.
 //  Copyright 2009 CLEAR Interactive. All rights reserved.
 //
 
-#import "CLEARSource.h"
+#import "HoptoadSource.h"
 #import "FeedEntry.h"
 #import "FeedParser.h"
 
-@implementation CLEARSource
+@implementation HoptoadSource
 
 - (NSString *)name {
-  return @"CLEAR";
+  return @"Hoptoad";
 }
 
 - (NSURL *)feedURL {
@@ -26,7 +26,7 @@
   NSArray *feedEntries = [feedParser parse];
 
   for (FeedEntry *feedEntry in feedEntries) {
-    NSString *title = [NSString stringWithFormat:@"Trade %@", feedEntry.published];
+    NSString *title = [NSString stringWithFormat:@"Error %@", feedEntry.published];
     
     [self messageReceivedWithID:feedEntry.id
                           title:title

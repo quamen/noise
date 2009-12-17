@@ -48,6 +48,10 @@
 		03E1BDEF10D0F54200D45C35 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03E1BDEE10D0F54200D45C35 /* Sparkle.framework */; };
 		03E1BDF310D0F54C00D45C35 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03E1BDEE10D0F54200D45C35 /* Sparkle.framework */; };
 		03E1BE0310D0F72200D45C35 /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = 03E1BE0210D0F72200D45C35 /* dsa_pub.pem */; };
+		03ECBB7B10D9F0C400B62BE7 /* Noise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03C2C40910CC6F5700DE9BF2 /* Noise.framework */; };
+		03ECBB7D10D9F0CE00B62BE7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECBB7C10D9F0CE00B62BE7 /* Cocoa.framework */; };
+		03ECBB8110D9F0DD00B62BE7 /* HoptoadSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ECBB5D10D9EFF300B62BE7 /* HoptoadSource.m */; };
+		03ECBB8810D9F11E00B62BE7 /* Hoptoad.noiseSource in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03ECBB7310D9F07A00B62BE7 /* Hoptoad.noiseSource */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -91,6 +95,20 @@
 			remoteGlobalIDString = 03C2C5E610CCA23400DE9BF2;
 			remoteInfo = Growl;
 		};
+		03ECBB7810D9F08600B62BE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03C2C40810CC6F5700DE9BF2 /* Noise.framework */;
+			remoteInfo = Noise.framework;
+		};
+		03ECBBD310DADDD400B62BE7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 03ECBB7210D9F07A00B62BE7 /* Hoptoad */;
+			remoteInfo = Hoptoad;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -102,6 +120,7 @@
 			files = (
 				03C2C4F210CC89CF00DE9BF2 /* CLEAR.noiseSource in CopyFiles */,
 				03C2C5FC10CCA36200DE9BF2 /* Growl.noiseNotifier in CopyFiles */,
+				03ECBB8810D9F11E00B62BE7 /* Hoptoad.noiseSource in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -171,6 +190,11 @@
 		03E1BD8110D0F08500D45C35 /* BWToolkitFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = BWToolkitFramework.framework; path = vendor/frameworks/BWToolkitFramework.framework; sourceTree = "<group>"; };
 		03E1BDEE10D0F54200D45C35 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = vendor/frameworks/Sparkle.framework; sourceTree = "<group>"; };
 		03E1BE0210D0F72200D45C35 /* dsa_pub.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dsa_pub.pem; sourceTree = "<group>"; };
+		03ECBB5B10D9EFF300B62BE7 /* Hoptoad-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Hoptoad-Info.plist"; path = "/Users/josh/src/noise/Hoptoad-Info.plist"; sourceTree = "<absolute>"; };
+		03ECBB5C10D9EFF300B62BE7 /* HoptoadSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HoptoadSource.h; path = /Users/josh/src/noise/HoptoadSource.h; sourceTree = "<absolute>"; };
+		03ECBB5D10D9EFF300B62BE7 /* HoptoadSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoptoadSource.m; path = /Users/josh/src/noise/HoptoadSource.m; sourceTree = "<absolute>"; };
+		03ECBB7310D9F07A00B62BE7 /* Hoptoad.noiseSource */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hoptoad.noiseSource; sourceTree = BUILT_PRODUCTS_DIR; };
+		03ECBB7C10D9F0CE00B62BE7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -210,6 +234,15 @@
 			files = (
 				03C2C62E10CCA45300DE9BF2 /* Cocoa.framework in Frameworks */,
 				03C2C8D010CDB1FB00DE9BF2 /* Noise.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03ECBB7110D9F07A00B62BE7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03ECBB7B10D9F0C400B62BE7 /* Noise.framework in Frameworks */,
+				03ECBB7D10D9F0CE00B62BE7 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +331,7 @@
 		03C2C52F10CC8FD200DE9BF2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				03ECBB5210D9EF7200B62BE7 /* Hoptoad */,
 				03C2C53010CC903500DE9BF2 /* CLEAR */,
 				03C2C53110CC903E00DE9BF2 /* CruiseControl */,
 			);
@@ -331,6 +365,16 @@
 				03408E9510C5166500594B6D /* GrowlNotifier.m */,
 			);
 			name = Growl;
+			sourceTree = "<group>";
+		};
+		03ECBB5210D9EF7200B62BE7 /* Hoptoad */ = {
+			isa = PBXGroup;
+			children = (
+				03ECBB5B10D9EFF300B62BE7 /* Hoptoad-Info.plist */,
+				03ECBB5C10D9EFF300B62BE7 /* HoptoadSource.h */,
+				03ECBB5D10D9EFF300B62BE7 /* HoptoadSource.m */,
+			);
+			name = Hoptoad;
 			sourceTree = "<group>";
 		};
 		080E96DDFE201D6D7F000001 /* Noise.framework */ = {
@@ -384,6 +428,7 @@
 				03C2C40910CC6F5700DE9BF2 /* Noise.framework */,
 				03C2C3E010CC66F700DE9BF2 /* CLEAR.noiseSource */,
 				03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */,
+				03ECBB7310D9F07A00B62BE7 /* Hoptoad.noiseSource */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -397,6 +442,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				03ECBB7C10D9F0CE00B62BE7 /* Cocoa.framework */,
 			);
 			name = Noise;
 			sourceTree = "<group>";
@@ -502,6 +548,24 @@
 			productReference = 03C2C5E710CCA23400DE9BF2 /* Growl.noiseNotifier */;
 			productType = "com.apple.product-type.bundle";
 		};
+		03ECBB7210D9F07A00B62BE7 /* Hoptoad */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03ECBB7710D9F07B00B62BE7 /* Build configuration list for PBXNativeTarget "Hoptoad" */;
+			buildPhases = (
+				03ECBB6F10D9F07A00B62BE7 /* Resources */,
+				03ECBB7010D9F07A00B62BE7 /* Sources */,
+				03ECBB7110D9F07A00B62BE7 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03ECBB7910D9F08600B62BE7 /* PBXTargetDependency */,
+			);
+			name = Hoptoad;
+			productName = Hoptoad;
+			productReference = 03ECBB7310D9F07A00B62BE7 /* Hoptoad.noiseSource */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8D1107260486CEB800E47090 /* Noise */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Noise" */;
@@ -518,6 +582,7 @@
 				03C2C4F810CC89E700DE9BF2 /* PBXTargetDependency */,
 				03C2C51410CC8AA400DE9BF2 /* PBXTargetDependency */,
 				03C2C60810CCA38E00DE9BF2 /* PBXTargetDependency */,
+				03ECBBD410DADDD400B62BE7 /* PBXTargetDependency */,
 			);
 			name = Noise;
 			productInstallPath = "$(HOME)/Applications";
@@ -544,6 +609,7 @@
 				03C2C40810CC6F5700DE9BF2 /* Noise.framework */,
 				03C2C3DF10CC66F700DE9BF2 /* CLEAR */,
 				03C2C5E610CCA23400DE9BF2 /* Growl */,
+				03ECBB7210D9F07A00B62BE7 /* Hoptoad */,
 			);
 		};
 /* End PBXProject section */
@@ -564,6 +630,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		03C2C5E310CCA23400DE9BF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		03ECBB6F10D9F07A00B62BE7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -634,6 +707,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		03ECBB7010D9F07A00B62BE7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03ECBB8110D9F0DD00B62BE7 /* HoptoadSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -672,6 +753,16 @@
 			isa = PBXTargetDependency;
 			target = 03C2C5E610CCA23400DE9BF2 /* Growl */;
 			targetProxy = 03C2C60710CCA38E00DE9BF2 /* PBXContainerItemProxy */;
+		};
+		03ECBB7910D9F08600B62BE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03C2C40810CC6F5700DE9BF2 /* Noise.framework */;
+			targetProxy = 03ECBB7810D9F08600B62BE7 /* PBXContainerItemProxy */;
+		};
+		03ECBBD410DADDD400B62BE7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 03ECBB7210D9F07A00B62BE7 /* Hoptoad */;
+			targetProxy = 03ECBBD310DADDD400B62BE7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -877,6 +968,58 @@
 			};
 			name = Release;
 		};
+		03ECBB7510D9F07B00B62BE7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Hoptoad-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Hoptoad;
+				WRAPPER_EXTENSION = noiseSource;
+			};
+			name = Debug;
+		};
+		03ECBB7610D9F07B00B62BE7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_GC = required;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/AppKit.framework/Headers/AppKit.h";
+				INFOPLIST_FILE = "Hoptoad-Info.plist";
+				INSTALL_PATH = "$(HOME)/Library/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Foundation,
+					"-framework",
+					AppKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = Hoptoad;
+				WRAPPER_EXTENSION = noiseSource;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -976,6 +1119,15 @@
 			buildConfigurations = (
 				03C2C5E910CCA23500DE9BF2 /* Debug */,
 				03C2C5EA10CCA23500DE9BF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		03ECBB7710D9F07B00B62BE7 /* Build configuration list for PBXNativeTarget "Hoptoad" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03ECBB7510D9F07B00B62BE7 /* Debug */,
+				03ECBB7610D9F07B00B62BE7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

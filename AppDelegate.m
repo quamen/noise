@@ -113,6 +113,7 @@
   
   for (Class klass in klasses) {
     // TODO: validate the plug-in.
+    NSLog(@"Loading notifier %@", [klass description]);
     Notifier *notifier = [[klass alloc] init];
     [notifiers addObject:notifier];
   }
@@ -124,6 +125,7 @@
   
   for (Class klass in klasses) {
     // TODO: validate the plug-in.
+    NSLog(@"Loading source %@", [klass description]);
     Source *source = [[klass alloc] initWithDelegate:self];
     [sources addObject:source];
   }
@@ -246,8 +248,10 @@
   
   while (currPath = [pathEnum nextObject]) {
     currBundle = [NSBundle bundleWithPath:currPath];
+
     if (currBundle) {
       currPrincipalClass = [currBundle principalClass];
+
       if (currPrincipalClass) {
         [instances addObject:currPrincipalClass];
       }
@@ -278,6 +282,7 @@
     NSDirectoryEnumerator *bundleEnum;
     NSString *currBundlePath;
     bundleEnum = [[NSFileManager defaultManager] enumeratorAtPath:currPath];
+
     if (bundleEnum) {
       while (currBundlePath = [bundleEnum nextObject]) {
         if ([[currBundlePath pathExtension] isEqualToString:ext]) {
