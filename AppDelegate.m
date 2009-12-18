@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Message.h"
 #import "Notifier.h"
+#import "NSBundle+CacheImages.h"
 #import "PFMoveApplication.h"
 #import "Source.h"
 
@@ -250,6 +251,7 @@
     currBundle = [NSBundle bundleWithPath:currPath];
 
     if (currBundle) {
+      [currBundle cacheImages];
       currPrincipalClass = [currBundle principalClass];
 
       if (currPrincipalClass) {

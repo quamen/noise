@@ -20,6 +20,10 @@
   return [NSURL URLWithString:FEED_URL];
 }
 
+- (NSImage *)icon {
+	return [NSImage imageNamed:@"hoptoad.png"];
+}
+
 - (void)update {
   [super update];
 

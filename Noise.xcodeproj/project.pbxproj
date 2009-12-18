@@ -52,6 +52,8 @@
 		03ECBB7D10D9F0CE00B62BE7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03ECBB7C10D9F0CE00B62BE7 /* Cocoa.framework */; };
 		03ECBB8110D9F0DD00B62BE7 /* HoptoadSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ECBB5D10D9EFF300B62BE7 /* HoptoadSource.m */; };
 		03ECBB8810D9F11E00B62BE7 /* Hoptoad.noiseSource in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03ECBB7310D9F07A00B62BE7 /* Hoptoad.noiseSource */; };
+		03ECBBEA10DAE39900B62BE7 /* hoptoad.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECBBE910DAE39900B62BE7 /* hoptoad.png */; };
+		03ECBC2710DB0A9F00B62BE7 /* NSBundle+CacheImages.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ECBC2610DB0A9F00B62BE7 /* NSBundle+CacheImages.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* AppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
@@ -195,6 +197,9 @@
 		03ECBB5D10D9EFF300B62BE7 /* HoptoadSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HoptoadSource.m; path = /Users/josh/src/noise/HoptoadSource.m; sourceTree = "<absolute>"; };
 		03ECBB7310D9F07A00B62BE7 /* Hoptoad.noiseSource */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Hoptoad.noiseSource; sourceTree = BUILT_PRODUCTS_DIR; };
 		03ECBB7C10D9F0CE00B62BE7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		03ECBBE910DAE39900B62BE7 /* hoptoad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hoptoad.png; path = /Users/josh/src/noise/hoptoad.png; sourceTree = "<absolute>"; };
+		03ECBC2510DB0A9F00B62BE7 /* NSBundle+CacheImages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+CacheImages.h"; sourceTree = "<group>"; };
+		03ECBC2610DB0A9F00B62BE7 /* NSBundle+CacheImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+CacheImages.m"; sourceTree = "<group>"; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -287,6 +292,8 @@
 				256AC3D80F4B6AC300CF3369 /* AppDelegate.h */,
 				256AC3D90F4B6AC300CF3369 /* AppDelegate.m */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
+				03ECBC2510DB0A9F00B62BE7 /* NSBundle+CacheImages.h */,
+				03ECBC2610DB0A9F00B62BE7 /* NSBundle+CacheImages.m */,
 				0380660810D6FC8E0052B0CF /* PFMoveApplication.h */,
 				0380660910D6FC8E0052B0CF /* PFMoveApplication.m */,
 			);
@@ -370,6 +377,7 @@
 		03ECBB5210D9EF7200B62BE7 /* Hoptoad */ = {
 			isa = PBXGroup;
 			children = (
+				03ECBBE910DAE39900B62BE7 /* hoptoad.png */,
 				03ECBB5B10D9EFF300B62BE7 /* Hoptoad-Info.plist */,
 				03ECBB5C10D9EFF300B62BE7 /* HoptoadSource.h */,
 				03ECBB5D10D9EFF300B62BE7 /* HoptoadSource.m */,
@@ -640,6 +648,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03ECBBEA10DAE39900B62BE7 /* hoptoad.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -723,6 +732,7 @@
 				256AC3DA0F4B6AC300CF3369 /* AppDelegate.m in Sources */,
 				039459F210C7C37D00785C37 /* NoiseDataModel.xcdatamodel in Sources */,
 				0380660A10D6FC8E0052B0CF /* PFMoveApplication.m in Sources */,
+				03ECBC2710DB0A9F00B62BE7 /* NSBundle+CacheImages.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
